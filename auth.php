@@ -1,54 +1,32 @@
 <?php
 
-//require_once 'config/setup.php';
-//
-//$login = trim($_POST['login']);
-//$email = trim($_POST['email']);
-//$password = trim($_POST['passwd']);
-//
-//if( !empty($login) && !empty($email) && !empty($password)) {
-//
-//    $sql = 'SELECT login, password FROM users WHERE login = :login';
-//
-//    $params = [':login' => $login];
-//
-//    $stmt = $pdo->prepare($sql);
-//    $stmt->execute($params);
-//
-//    $user = $stmt->fetch(PDO::FETCH_OBJ);
-//
-//    if($user) {
-//        if(password_verify($password, $user->password)) {
-//            header('Location: entry.php');
-//        } else
-//            echo 'NOT CORRECT :(';
-//    } else
-//        echo 'NOT CORRECT :(';
-//} else
-//    echo 'Please a write full information about you :)';
+session_start();
+require_once 'connection.php';
 
-if( !empty($login) && !empty($email) && !empty($password)) {
 
-    try {
-        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD, $opt);
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage() . ":(<br/>";
-    }
+$login = trim($_POST['login']);
+$password = trim($_POST['passwd']);
 
-    try {
-        $params = [':login' => $login];
-        $stmt = $dbh->prepare('SELECT login, password FROM users WHERE login = :login');
-        $stmt->execute();
-        $user = $stmt->fetch(PDO::FETCH_OBJ);
-        if ($user) {
-            if (password_verify($password, $user->password)) {
-                header('Location: entry.php');
-            } else
-                echo 'NOT CORRECT :(';
+if( !empty($login) && !empty($password)) {
+
+    $sth = $dbh->prepare('SELECT login, password, id, email FROM users WHERE login = :login');
+
+    $params = [':login' => $login];
+    $sth->execute($params);
+
+    $user = $sth->fetch(PDO::FETCH_OBJ);
+
+    if ($user) {
+        if (password_verify($password, $user->password)) {
+
+            $_SESSION['id'] = $user->id;
+            $_SESSION['login'] = $user->login;
+            $_SESSION['email'] = $user->email;
+            header('Location: entry.php');
         } else
-            echo 'NOT CORRECT :(';
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage() . ":(<br/>";
-    }
-}else
-    echo 'Please a write full information about you :)';
+            echo "incorrect your login or password :(";
+    } else
+        echo "Write your full info, please <3";
+}
+
+

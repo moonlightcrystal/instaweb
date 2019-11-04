@@ -1,5 +1,5 @@
 <?php
-    $DB_DSN = 'mysql:host=192.168.99.124;dbname=camagru;charset=utf8';
+    $DB_DSN = 'mysql:host=db;dbname=camagru;charset=utf8';
     $DB_USER = "root";
     $DB_PASSWORD = "root";
     $opt = [

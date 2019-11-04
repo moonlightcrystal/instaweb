@@ -1,6 +1,5 @@
 <?php
 
-
 ?>
 ​
 <html>
@@ -118,7 +117,7 @@
         <a href="signup.php"><h2 class="inactive underlineHover">Sign Up</h2></a>
         ​
         <div class="fadeIn first">
-            <img style="width: 377px; border-radius: 5px 5px 5px 5px;" src="resources/profile.png" id="icon"
+            <img style="width: 377px; border-radius: 5px 5px 5px 5px;" src="profile.png" id="icon"
                  alt="User Icon"/>
         </div>
         ​

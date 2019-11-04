@@ -94,6 +94,19 @@
         border: 2px solid greenyellow;
         fon
     }
+    input[type=email] {
+        background-color: blue;
+        color: #0d0d0d;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 5px;
+        width: 85%;
+        border: 2px solid greenyellow;
+        fon
+    }
     input[type=text]:focus {
         background-color: blue;
         border-bottom: 3px solid yellowgreen;
@@ -104,13 +117,13 @@
         <a href="signin.php"><h2 class="inactive underlineHover"> Sign In </h2></a>
         <h2 class="active"> Sign Up </h2>
         <div class="fadeIn first">
-            <img style="width: 377px; border-radius: 5px 5px 5px 5px;" src="resources/profile.png" id="icon" alt="User Icon" />
+            <img style="width: 377px; border-radius: 5px 5px 5px 5px;" src="profile.png" id="icon" alt="User Icon" />
         </div>
         ​
         <form method="post" action="reg.php">
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder=login>
-            <input type="text" id="email" class="fadeIn second" name="email" placeholder=youremail>
-            <input type="password" id="password" class="fadeIn third" name="passwd" placeholder=password>
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder=login required>
+            <input type="email" id="email" class="fadeIn second" name="email" placeholder=youremail required>
+            <input type="password" id="password" class="fadeIn third" name="passwd" placeholder=password required>
             <input type="submit" class="fadeIn fourth" value="Sign UP">
         </form>
     </div>
