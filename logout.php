@@ -1,12 +1,14 @@
 <?php
-unset($_SESSION['login']);
+session_start();
+unset($_SESSION['id']);
 
-
-echo "HELLO " . $_SESSION['login'];
+header('Location: index.php');
+//echo "HELLO " . $_SESSION['login'];
 ?>
-<html>
- <form action="signin.php">
-     <input type="submit" value="Login">
- </form>
 
- </html>
+<!--<html>-->
+<!-- <form action="signin.php">-->
+<!--     <input type="submit" value="Login">-->
+<!-- </form>-->
+<!---->
+<!-- </html>-->

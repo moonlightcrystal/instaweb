@@ -1,0 +1,209 @@
+@import "compass/css3";
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    /*background: url("backgroudPink.png") 0px 0px repeat;*/
+    background: #C80D80;
+}
+
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.flex-item {
+    background: tomato;
+    padding: 5px;
+    width: 200px;
+    height: 150px;
+    margin-top: 10px;
+
+    line-height: 150px;
+    color: white;
+    font-weight: bold;
+    font-size: 3em;
+    text-align: center;
+}
+
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 2000px;
+    height: 100px;
+    clear: both;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 2000px;
+    clear: both;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    background: black;
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+    list-style: none;
+    display: -moz-box;
+}
+
+#block{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    height: 20vw;
+    margin-right: 20vw;
+}
+
+#picture {
+    display: flex;
+    flex-direction: column;
+}
+
+#picture img {
+    width: 15vw;
+    height: 15vw;
+}
+
+#loginPicture {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#loginPicture img {
+    border-radius: 50%;
+    width: 3vw;
+    height: 3vw;
+    margin-right: 30%;
+    padding: 0.1vw;
+}
+
+#loginPicture a {
+    text-decoration: none;
+    color: greenyellow;
+    font-size: 1.5vw;
+}
+
+#comment {
+    display: flex;
+    flex-direction: row;
+    height: 1.7vw;
+}
+
+input[name=comments] {
+    width: 12vw;
+    height: 1.5vw;
+    background: #C80D80;
+    border: black solid 0.1vw;
+    border-width: 0.1vw 0.1vw 0px 0vw;
+
+}
+
+input[name=plus] {
+    width: 3vw;
+    height: 1.5vw;
+    background: greenyellow;
+    border: black solid 0.1vw;
+    border-width: 0.1vw 0vw 0px 0vw;
+}
+
+#label {
+    background: #1D51E5;
+    width: 70%;
+}
+
+#dope {
+    background: #009BA7;
+    width: 30%;
+    text-decoration: none;
+}
+
+#profile {
+    background: #C80D80;
+    width: 30%;
+    text-decoration: none;
+}
+
+#logout {
+    background: #43EE30;
+    width: 20%;
+    text-decoration: none;
+}
+
+div img {
+    width: 100px;
+}
+
+
+@-webkit-keyframes scroll {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    100% {
+        -webkit-transform: translate(-100%, 0);
+        transform: translate(-100%, 0)
+    }
+}
+
+@-moz-keyframes scroll {
+    0% {
+        -moz-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    100% {
+        -moz-transform: translate(-100%, 0);
+        transform: translate(-100%, 0)
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-100%, 0)
+    }
+}
+
+.marquee {
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    -webkit-animation: scroll 5s infinite linear;
+    -moz-animation: scroll 5s infinite linear;
+    animation: scroll 5s infinite linear;
+    color: #C80D80;
+}

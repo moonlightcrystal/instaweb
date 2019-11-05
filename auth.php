@@ -22,7 +22,7 @@ if( !empty($login) && !empty($password)) {
             $_SESSION['id'] = $user->id;
             $_SESSION['login'] = $user->login;
             $_SESSION['email'] = $user->email;
-            header('Location: entry.php');
+            header('Location: index.php');
         } else
             echo "incorrect your login or password :(";
     } else
