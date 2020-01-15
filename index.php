@@ -43,7 +43,37 @@ session_start();
     ?>
 </header>
 
-<ul class="flex-container">
+<main>
+    <div class="outer-wrapper">
+        <div class="wrapper">
+            <div class="slide one">
+                <div class="posts">
+    <div class="post1">
+        <img src="post1img.jpg">
+        <div class="barpost">
+        <a href="#">KRIS</a>
+        <a href="#" class="like">
+            <i class="fa fa-heart" aria-hiddent="true">🖤</i>
+        </a>
+        <div>
+    </div>
+    <div class="post2"></div>
+</div>
+            </div>
+            <div class="slide two"></div>
+            <div class="slide three"></div>
+            <div class="slide four"></div>
+        </div>
+    </div>
+</main>
+
+
+
+
+
+
+
+<!-- <ul class="flex-container">
     <li>
         <div id="picture">
             <div id="loginPicture">
@@ -84,7 +114,7 @@ session_start();
         </div>
     </li>
     
-</ul>
+</ul> -->
 
 </body>
 </html>

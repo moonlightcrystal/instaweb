@@ -13,32 +13,6 @@ body {
     background: #90EE90; 
 }
 
-.flex-container {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    -webkit-flex-flow: row wrap;
-    justify-content: space-around;
-    max-width: 2000px;
-    width: 100%;
-}
-
-/* .flex-item {
-    background: tomato;
-    padding: 5px;
-    width: 200px;
-    height: 150px;
-    margin-top: 10px;
-
-    line-height: 150px;
-    color: white;
-    font-weight: bold;
-    font-size: 3em;
-    text-align: center;
-} */
-
-
 header {
     display: flex;
     flex-direction: row;
@@ -51,7 +25,75 @@ header {
     text-align: center;
 }
 
-.main {
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+    max-width: 2000px;
+    width: 100%;
+}
+
+.post1 img {
+    width: 25vw;
+    height: 35vw;
+}
+
+.slide {
+    width: 100vw;
+    height: 91.5vh;
+  }
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 400vw;
+    transform: rotate(90deg) translateY(-100vh);
+    transform-origin: top left;
+  }
+  .one {
+    background: #efdefe;
+  }
+  .two {
+    background: #a3f3d3;
+  }
+  .three {
+    background: #0bbaa0;
+  }
+  .four {
+    background: #00dfdf;
+  }
+
+.posts {
+    display: flex;
+    flex-direction: row;
+}
+
+.post1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.barpost {
+    display: flex;
+    flex-direction: row;
+}
+  .outer-wrapper {
+    width: 100vh;
+    height: 100vw;
+    transform: rotate(-90deg) translateX(-100vh);
+    transform-origin: top left;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+ 
+
+/* .main {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -65,7 +107,7 @@ header {
     justify-content: space-around;
     list-style: none;
     display: -moz-box;
-}
+} */
 
 #block{
     display: flex;
