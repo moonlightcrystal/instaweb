@@ -15,7 +15,7 @@ session_start();
 
     <?php if (isset($_SESSION['id']) && $_SESSION['id'] != "") {
         ?>
-        <a id="dope" href="#">
+        <a id="dope" href="takephoto.php">
             <div>take a picture with dope</div>
         </a>
         <a id="profile" href="#">
@@ -41,39 +41,47 @@ session_start();
         </a>
     <?php }
     ?>
+
+
 </header>
 
-<main>
-    <div class="outer-wrapper">
-        <div class="wrapper">
-            <div class="slide one">
-                <div class="posts">
-    <div class="post1">
-        <img src="post1img.jpg">
-        <div class="barpost">
-        <a href="#">KRIS</a>
-        <a href="#" class="like">
-            <i class="fa fa-heart" aria-hiddent="true">🖤</i>
-        </a>
-        <div>
-    </div>
-    <div class="post2"></div>
-</div>
-            </div>
-            <div class="slide two"></div>
-            <div class="slide three"></div>
-            <div class="slide four"></div>
-        </div>
-    </div>
-</main>
+<!--<main>-->
+<!--    <div class="outer-wrapper">-->
+<!--        <div class="wrapper">-->
+<!--            <div class="slide one">-->
+<!--                <div class="posts">-->
+<!--                    <div class="post1">-->
+<!--                        <img src="post1img.jpg">-->
+<!--                        <div class="barpost">-->
+<!--                            <a href="#">KRIS</a>-->
+<!--                            <a href="#" class="like">-->
+<!--                                <i class="fa fa-heart" aria-hiddent="true">🖤</i>-->
+<!--                            </a>-->
+<!--                            <div>-->
+<!--                            </div>-->
+<!--                            <div class="post2"></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="slide two"></div>-->
+<!--                    <div class="slide three"></div>-->
+<!--                    <div class="slide four"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--</main>-->
+
+<!--<main>-->
+<!--    <div class="outer-wrapper">-->
+<!--        <div class="wrapper">-->
+<!--            <div class="slide one"></div>-->
+<!--            <div class="slide two"></div>-->
+<!--            <div class="slide three"></div>-->
+<!--            <div class="slide four"></div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</main>-->
 
 
-
-
-
-
-
-<!-- <ul class="flex-container">
+ <ul class="flex-container">
     <li>
         <div id="picture">
             <div id="loginPicture">
@@ -113,8 +121,8 @@ session_start();
             </div>
         </div>
     </li>
-    
-</ul> -->
+
+</ul>
 
 </body>
 </html>
