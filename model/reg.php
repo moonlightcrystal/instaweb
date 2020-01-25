@@ -16,8 +16,8 @@ if (!empty($login) && !empty($email) && !empty($password)) {
         $sth1->bindParam(':email', $email, PDO::PARAM_STR);
         $sth1->bindParam(':passwd', $password, PDO::PARAM_STR);
         $sth1->execute();
-        header('Location: signin.php');
+        header('Location: ../view/signin.php');
     } catch (PDOException $e) {
-        header('Location: signup.php');
+        header('Location: ../view/signup.php');
     }
 }

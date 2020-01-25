@@ -2,7 +2,7 @@
 session_start();
 unset($_SESSION['id']);
 
-header('Location: index.php');
+header('Location: view/index.php');
 //echo "HELLO " . $_SESSION['login'];
 ?>
 

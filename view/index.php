@@ -9,16 +9,14 @@ session_start();
 </head>
 <body>
 <header>
-    <div id="label">
-        HOME
-    </div>
+
 
     <?php if (isset($_SESSION['id']) && $_SESSION['id'] != "") {
         ?>
         <a id="dope" href="takephoto.php">
             <div>take a picture with dope</div>
         </a>
-        <a id="profile" href="#">
+        <a id="profile" href="entry.php">
             <div>
                 PROFILE
             </div>
@@ -26,6 +24,23 @@ session_start();
         <a id="logout" href="logout.php">
             <p>LOGOUT</p>
         </a>
+        <a id="label" href="index.php">
+            GALERY
+        </a>
+        <?php
+            $i=0;
+            //$filenames_array = SELECT name FROM images SORT BY date LIMIT 100
+            //for $filename in $filenames_array:
+            //<div>img</div>
+//            while ($i < 10) {
+//                $i += 1;
+//                ?>
+<!--                <div>-->
+<!--                   HELLO-->
+<!--                </div>-->
+<!--                --><?php
+//            }
+        ?>
     <?php } else {
         ?>
         <div id="dope">

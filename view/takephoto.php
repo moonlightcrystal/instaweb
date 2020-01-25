@@ -50,7 +50,7 @@ $_SESSION['id'];
 <!--        <button type="submit">GO</button>-->
 <!--    </form><br>-->
 
-    <form action="store.php" method="post" enctype="multipart/form-data">
+    <form action="view/index.php" method="post" enctype="multipart/form-data">
         <input type="text" name="title"><br>
         <input type="file" name="image"><br>
         <button type="submit">GO</button>
