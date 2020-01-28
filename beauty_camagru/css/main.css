@@ -19,6 +19,30 @@ button {
 
 }
 
+.infouser {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+
+}
+
+.infouser div p {
+        margin-top: 0.5vw;
+}
+
+
+.infouser div {
+    display: flex;
+    flex-direction: row;
+}
+
+.infouser div img {
+    border-radius: 50%;
+    width: 3vw;
+    height: 3vw;
+    margin-right: 3%;
+}
+
 header {
     display: flex;
     flex-direction: row;
@@ -42,17 +66,17 @@ header {
     width: 100%;
 }
 
-.contacts {
+footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.contacts a {
+footer a {
     color: #ee0d34;
 }
 
-.contacts p {
+footer p {
     color: yellow;
 }
 

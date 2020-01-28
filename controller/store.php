@@ -1,44 +1,61 @@
 <?php
 session_start();
-require_once 'connection.php';
+require_once '../model/connection.php';
+require '../model/addpost.php';
+
+
+function authentication($login, $password, $dbh)
+{
+
+    if (!empty($login) && !empty($password)) {
+
+        $sth = $dbh->prepare('SELECT login, password, id, email FROM users WHERE login = :login');
+
+        $params = [':login' => $login];
+        $sth->execute($params);
+
+        $user = $sth->fetch(PDO::FETCH_OBJ);
+
+        if ($user) {
+            if (password_verify($password, $user->password)) {
+
+                $_SESSION['id'] = $user->id;
+                $_SESSION['login'] = $user->login;
+                $_SESSION['email'] = $user->email;
+                header('Location: ../view/index.php');
+            } else
+                echo "incorrect your login or password :(";
+        } else
+            echo "Write your full info, please <3";
+    }
+}
+
+function showPost($dbh)
+{
+    $sql = "SELECT * FROM `images`";
+    $statement = $dbh->prepare($sql);
+    $statement->execute();
+    $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $posts;
+}
 
 function uploadImg($image)
 {
     $extension = pathinfo($image['name'], PATHINFO_EXTENSION);
     $filename = uniqid() . "." . $extension;
 
-    move_uploaded_file($image['tmp_name'], 'uploads/' . $filename);
+    move_uploaded_file($image['tmp_name'], '../uploads/' . $filename);
 
     return $filename;
 }
 
-$filename = uploadImg($_FILES['image']);
-
-
-function addPost($name, $login, $title)
-{
-    $sql =
-        "INSERT INTO `images` (`name`, `date`, `login`, `title`) VALUES (
-    :name,
-    FROM_UNIXTIME(:date),
-    (SELECT `login` from `users` WHERE `users`.`login` = :login),
-    :title)";
-    $statement = $dbh->prepare($sql);
-    $statement->bindParam(":title", $_POST['title']);
-    $statement->bindParam(":date", time());
-    $statement->bindParam(":name", $filename);
-    $statement->bindParam(":login", $_SESSION['login']);
-    $statement->execute();
+if($_FILES['image']) {
+    $filename = uploadImg($_FILES['image']);
+    addPost($filename, $_SESSION['login'], $_POST['title'], $dbh);
+    showPost($dbh);
+    header('Location: ../view/index.php');
 }
-var_dump($_POST);
 
-addPost($name, $login, $title);
-
-
-//$sql = "INSERT INTO `images`()"
-
-
-//
-////var_dump($_FILES['image']);
-//
-//uploadImg($_FILES['image']);
+register($_POST['login'], $_POST['email'], $_POST['passwd'], $dbh);
+authentication($_POST['login'], $_POST['passwd'], $dbh);

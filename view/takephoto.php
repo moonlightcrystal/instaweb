@@ -5,7 +5,7 @@ $_SESSION['id'];
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
 </head>
 <body>
 <header>
@@ -29,10 +29,10 @@ $_SESSION['id'];
     <?php } else {
         ?>
         <div id="dope">
-            <img src="pink.png">
+            <img src="../pink.png">
         </div>
         <div id="profile">
-            <img src="blue.PNG">
+            <img src="../blue.PNG">
         </div>
         <a id="logout" href="signin.php">
             <div>
@@ -50,7 +50,7 @@ $_SESSION['id'];
 <!--        <button type="submit">GO</button>-->
 <!--    </form><br>-->
 
-    <form action="view/index.php" method="post" enctype="multipart/form-data">
+    <form action="../controller/store.php" method="post" enctype="multipart/form-data">
         <input type="text" name="title"><br>
         <input type="file" name="image"><br>
         <button type="submit">GO</button>

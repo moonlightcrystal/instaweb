@@ -1,7 +1,3 @@
-<?php
-
-?>
-​
 <html>
 <style>
     @import url('https://fonts.googleapis.com/css?family=Poppins');
@@ -22,7 +18,7 @@
 
     h2 {
         text-align: center;
-        font-size: 16px;
+        font-size: 16;
         font-weight: 600;
         text-transform: uppercase;
         display: inline-block;
@@ -48,6 +44,8 @@
         position: relative;
         box-shadow: 0 45px 60px 0 rgba(0, 0, 0, 0.3);
         text-align: center;
+        margin-left: 40%;
+        margin-bottom: 5%;
     }
 
     h2.inactive {
@@ -111,13 +109,12 @@
     }
 
     ​</style>
-<div class="wrapper fadeInDown">
     <div id="formContent">
         <h2 class="active"> Sign In </h2>
-        <a href="signup.php"><h2 class="inactive underlineHover">Sign Up</h2></a>
+        <a href="/signup"><h2 class="inactive underlineHover">Sign Up</h2></a>
         ​
         <div class="fadeIn first">
-            <img style="width: 377px; border-radius: 5px 5px 5px 5px;" src="../profile.png" id="icon"
+            <img style="width: 377px; border-radius: 5px 5px 5px 5px;" src="images/profile.png" id="icon"
                  alt="User Icon"/>
         </div>
         ​
@@ -127,5 +124,4 @@
             <input type="submit" class="fadeIn fourth" value="LogIn">
         </form>
     </div>
-</div>
 </html>

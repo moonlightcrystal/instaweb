@@ -117,10 +117,10 @@
         <a href="signin.php"><h2 class="inactive underlineHover"> Sign In </h2></a>
         <h2 class="active"> Sign Up </h2>
         <div class="fadeIn first">
-            <img style="width: 377px; border-radius: 5px 5px 5px 5px;" src="profile.png" id="icon" alt="User Icon" />
+            <img style="width: 377px; border-radius: 5px 5px 5px 5px;" src="../profile.png" id="icon" alt="User Icon" />
         </div>
         ​
-        <form method="post" action="reg.php">
+        <form method="post" action="../controller/store.php">
             <input type="text" id="login" class="fadeIn second" name="login" placeholder=login required>
             <input type="email" id="email" class="fadeIn second" name="email" placeholder=youremail required>
             <input type="password" id="password" class="fadeIn third" name="passwd" placeholder=password required>

@@ -1,11 +1,14 @@
 <?php
 session_start();
+require "../controller/store.php"
+//setlocale(LC_ALL, 'ru_RU');
+//date_default_timezone_set( 'Europe/Moscow' );
 //$_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
 </head>
 <body>
 <header>
@@ -24,30 +27,16 @@ session_start();
         <a id="logout" href="logout.php">
             <p>LOGOUT</p>
         </a>
-        <a id="label" href="index.php">
+        <a id="label">
             GALERY
         </a>
-        <?php
-            $i=0;
-            //$filenames_array = SELECT name FROM images SORT BY date LIMIT 100
-            //for $filename in $filenames_array:
-            //<div>img</div>
-//            while ($i < 10) {
-//                $i += 1;
-//                ?>
-<!--                <div>-->
-<!--                   HELLO-->
-<!--                </div>-->
-<!--                --><?php
-//            }
-        ?>
     <?php } else {
         ?>
         <div id="dope">
-            <img src="pink.png">
+            <img src="../pink.png">
         </div>
         <div id="profile">
-            <img src="blue.PNG">
+            <img src="../blue.PNG">
         </div>
         <a id="logout" href="signin.php">
             <div>
@@ -60,6 +49,33 @@ session_start();
 
 </header>
 
+
+<ul class="flex-container">
+
+    <?php
+    $posts = showPost($dbh);
+    if ($posts) {
+        foreach ($posts as $post):?>
+            <li>
+                <div id="picture">
+                    <p id="date" style="color: #0bbaa0"><?= $post['date']; ?></p>
+                    <div id="loginPicture">
+                        <img src="../avatar.jpg">
+                        <p style="color: greenyellow"><?= $post['title']; ?></p>
+                        <a href=""><?= $post['login']; ?></a>
+                    </div>
+                    <img src="../uploads/<?= $post['name']; ?>">
+                    <div id="comment">
+                        <input name="comments" type="text" placeholder="add your comment">
+                        <button name="plus" type="button">Add comment</button>
+                    </div>
+                </div>
+            </li>
+        <?php endforeach;
+    } else
+        ?>
+
+</ul>
 <!--<main>-->
 <!--    <div class="outer-wrapper">-->
 <!--        <div class="wrapper">-->
@@ -95,49 +111,11 @@ session_start();
 <!--    </div>-->
 <!--</main>-->
 
-
- <ul class="flex-container">
-    <li>
-        <div id="picture">
-            <div id="loginPicture">
-                <img src="avatar.jpg">
-                <a href="">alfur</a>
-            </div>
-            <img src="keeet.png">
-            <div id="comment">
-                <input name="comments" type="text" placeholder="add your comment">
-                <input name="plus" type="button" value="➕">
-            </div>
-        </div>
-    </li>
-    <li>
-        <div id="picture">
-            <div id="loginPicture">
-                <img src="avatar.jpg">
-                <a href="">alfur</a>
-            </div>
-            <img src="keeet.png">
-            <div id="comment">
-                <input name="comments" type="text" placeholder="add your comment">
-                <input name="plus" type="button" value="➕">
-            </div>
-        </div>
-    </li>
-    <li>
-        <div id="picture">
-            <div id="loginPicture">
-                <img src="avatar.jpg">
-                <a href="">alfur</a>
-            </div>
-            <img src="keeet.png">
-            <div id="comment">
-                <input name="comments" type="text" placeholder="add your comment">
-                <input name="plus" type="button" value="➕">
-            </div>
-        </div>
-    </li>
-
-</ul>
-
+<footer>
+    <div class="contacts">
+        <a href="https://www.instagram.com/kreshotka_tris/">MY INSTAGRAM</a>
+        <p>&copy; 2020 Created by Rudakova Kristina</p>
+    </div>
+</footer>
 </body>
 </html>

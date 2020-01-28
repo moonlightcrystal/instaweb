@@ -1,6 +1,6 @@
 <?php
 include 'database.php';
-include '../connection.php';
+include '../model/connection.php';
 //try {
 //    $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD, $opt);
 //    $sql = "CREATE DATABASE IF NOT EXISTS camagru";
