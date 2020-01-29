@@ -1,7 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="552fba39-9481-49e9-8841-7f560f87e482" name="Default Changelist" comment="" />
+    <list default="true" id="552fba39-9481-49e9-8841-7f560f87e482" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/core/pdo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/models/model_signup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IMG_1391.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IMG_1392.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IMG_1393.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IMG_1395.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../author" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../avatar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backgroudPink.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/controller_signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/controller_signup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/profile_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/profile_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/signup_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/signup_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/template_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/template_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blue.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config/database.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config/setup.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../controller/store.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../create.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../heart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../input.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../keeet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../maxresdefault.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../model/addpost.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../model/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../model/connection.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../model/reg.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../oop.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../php.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pink.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post1img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post2img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proba.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../profile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uploads/5e2f4aef3ef62.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uploads/5e2f58d45d16d.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../uploads/5e3093661f564.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../view/entry.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../view/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../view/logout.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../view/profile.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../view/show.post.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../view/signin.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../view/signup.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../view/takephoto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wrape.html" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,7 +66,11 @@
       <executable />
     </execution>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1X2ElRSbL4xPg6vgKjDl0xDaO41" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -20,8 +78,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -51,6 +110,7 @@
       <option name="presentableId" value="Default" />
       <updated>1580235939710</updated>
       <workItem from="1580235940998" duration="7518000" />
+      <workItem from="1580327223798" duration="4949000" />
     </task>
     <servers />
   </component>
@@ -58,9 +118,9 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1261" y="740" key="NewPhpFileDialog" timestamp="1580245123291">
+    <state x="1261" y="740" key="NewPhpFileDialog" timestamp="1580332129494">
       <screen x="0" y="0" width="2880" height="1540" />
     </state>
-    <state x="1261" y="740" key="NewPhpFileDialog/0.0.2880.1540@0.0.2880.1540" timestamp="1580245123291" />
+    <state x="1261" y="740" key="NewPhpFileDialog/0.0.2880.1540@0.0.2880.1540" timestamp="1580332129494" />
   </component>
 </project>

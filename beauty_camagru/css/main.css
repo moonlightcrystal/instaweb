@@ -19,29 +19,35 @@ button {
 
 }
 
+#formatprofile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
 .infouser {
     display: flex;
     flex-direction: column;
     margin-left: 5%;
+    justify-content: space-evenly;
 
 }
 
-.infouser div p {
-        margin-top: 0.5vw;
-}
-
-
-.infouser div {
+.infouser form {
     display: flex;
     flex-direction: row;
+    margin-top: 3%;
+    justify-content: flex-start;
+
 }
 
-.infouser div img {
+.infouser form img {
     border-radius: 50%;
     width: 3vw;
     height: 3vw;
     margin-right: 3%;
 }
+
 
 header {
     display: flex;
@@ -234,6 +240,7 @@ input[name=plus] {
 #label {
     background: #1D51E5;
     width: 70%;
+    text-decoration: none;
 }
 
 #dope {

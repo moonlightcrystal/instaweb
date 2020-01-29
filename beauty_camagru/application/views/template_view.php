@@ -1,7 +1,8 @@
 <?php
 
-session_start();
-$_SESSION['id'] = 45;
+//session_start();
+//print (var_dump($_SESSION));
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,8 +17,8 @@ $_SESSION['id'] = 45;
         
         <a id="dope" href="/addpost">take a picture with dope</a>
         <a id="profile" href="/profile">PROFILE</a>
-        <a id="logout" href="/">LOGOUT</a>
-        <a id="label">GALERY</a>
+        <a id="logout" href="/signin">LOGOUT</a>
+        <a id="label" href="/">GALERY</a>
         
         ';
     } else {
