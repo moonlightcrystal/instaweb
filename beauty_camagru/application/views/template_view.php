@@ -2,6 +2,7 @@
 
 //session_start();
 //print (var_dump($_SESSION));
+$_SESSION['id'] = '45';
 
 ?>
 <!DOCTYPE html>

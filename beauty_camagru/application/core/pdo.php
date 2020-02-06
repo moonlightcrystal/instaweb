@@ -1,5 +1,6 @@
 <?php
-require_once dirname(__FILE__)."/../../config/database.php";
+//require_once dirname(__FILE__)."/../../config/database.php";
+require_once "../config/database.php";
 
 class pdo_TT
 {
@@ -20,8 +21,26 @@ class pdo_TT
         }
     }
 
+    private function _execute($query, $data)
+    {
+        try {
+            $statement = self::$pdo->prepare($query);
+            if ($statement->execute($data))
+                return $statement;
+        } catch (PDOException $e) {
+            error_log("Request\n".$query."\nfailed because: ".$e->getMessage());
+        }
+        return null;
+    }
+
+    public function upsert($query, $data = [])	{
+        return $this->_execute($query, $data) ? true : false;
+    }
+
+    public function select($query, $data = [])
+    {
+        $statement = $this->_execute($query, $data);
+        return $statement ? $statement->fetchAll() : [];
+    }
 }
 
-$TTT = new pdo_TT();
-
-?>

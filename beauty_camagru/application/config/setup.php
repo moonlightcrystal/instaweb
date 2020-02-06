@@ -2,7 +2,7 @@
 include 'database.php';
 include 'connection.php';
 
-date_default_timezone_set('Etc/GMT+3');
+date_default_timezone_set('Europe/Moscow');
 
 $sql = "CREATE DATABASE IF NOT EXISTS camagru";
 $dbh->exec($sql);
