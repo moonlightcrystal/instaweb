@@ -1,21 +1,22 @@
 <?php
-include 'database.php';
-include 'connection.php';
-
+//include 'database.php';
+//include 'connection.php';
+require_once dirname(__FILE__)."/../core/pdo.php";
 date_default_timezone_set('Europe/Moscow');
 
-$sql = "CREATE DATABASE IF NOT EXISTS camagru";
-$dbh->exec($sql);
+$dbh = new createPdo($DB_DSN, $DB_USER, $DB_PASSWORD, $opt);
+
+$dbh->upsert( "CREATE DATABASE IF NOT EXISTS camagru");
 echo "Database created successfully :3 <br>";
 
-$dbh->query("CREATE TABLE IF NOT EXISTS users
+$dbh->upsert("CREATE TABLE IF NOT EXISTS users
 (
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
     login VARCHAR(32) NOT NULL UNIQUE ,
-    email VARCHAR(128) UNIQUE ,
+    email VARCHAR(128) NOT NULL UNIQUE ,
     password VARCHAR(255) NOT NULL);");
 
-$dbh->query(
+$dbh->upsert(
     "CREATE TABLE IF NOT EXISTS `images` ( 
     `photo_id` INT NOT NULL AUTO_INCREMENT , 
     `name` VARCHAR(77) NOT NULL , 
@@ -27,7 +28,7 @@ $dbh->query(
     PRIMARY KEY (`photo_id`), UNIQUE (`name`));");
 
 
-$dbh->query(
+$dbh->upsert(
     "CREATE TABLE IF NOT EXISTS `comments` (
     `comment_id` INT NOT NULL AUTO_INCREMENT ,
     `author` VARCHAR(32),

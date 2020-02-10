@@ -1,22 +1,30 @@
 <?php
-//require_once dirname(__FILE__)."/../../config/database.php";
-require_once "../config/database.php";
 
-class pdo_TT
+include dirname(__FILE__)."/../config/database.php";
+
+class createPdo
 {
 
     public static $dbh = null;
+    private $db_dsn;
+    private $db_user;
+    private $db_pass;
+    private $opt;
 
-    public function __construct()
+    public function __construct($DB_DSN, $DB_USER, $DB_PASSWORD, $opt)
     {
+        $this->db_dsn = $DB_DSN;
+        $this->db_user = $DB_USER;
+        $this->db_pass = $DB_PASSWORD;
+        $this->opt = $opt;
 
         if (self::$dbh)
             return;
         else {
             try {
-                $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD, $opt);
+                self::$dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD, $opt);
             } catch (PDOException $e) {
-                echo "Error with creating db: " . $e->getMessage() . ":(<br/>";
+                echo "Error with creating db: " . $e->getMessage() . ":(";
             }
         }
     }
@@ -24,11 +32,11 @@ class pdo_TT
     private function _execute($query, $data)
     {
         try {
-            $statement = self::$pdo->prepare($query);
+            $statement = self::$dbh->prepare($query);
             if ($statement->execute($data))
                 return $statement;
         } catch (PDOException $e) {
-            error_log("Request\n".$query."\nfailed because: ".$e->getMessage());
+            echo "Request\n".$query."\nfailed because: ".$e->getMessage();
         }
         return null;
     }
@@ -43,4 +51,3 @@ class pdo_TT
         return $statement ? $statement->fetchAll() : [];
     }
 }
-

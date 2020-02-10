@@ -10,6 +10,7 @@ class Route
 
         $routes = explode('/', $_SERVER['REQUEST_URI']);
 
+
         if (!empty($routes[1])) {
             $controller_name = $routes[1];
         }
