@@ -1,9 +1,6 @@
 <?php
 
-//session_start();
-//print (var_dump($_SESSION));
-$_SESSION['id'] = '45';
-
+print($_SESSION['id']);
 ?>
 <!DOCTYPE html>
 <html lang="en">

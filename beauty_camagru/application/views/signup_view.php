@@ -118,6 +118,11 @@
             <img style="width: 377px; border-radius: 5px 5px 5px 5px;" src="images/profile.png" id="icon" alt="User Icon" />
         </div>
         ​
+
+<!--        <form method="post" action="signup/checkCode">-->
+<!--            <input type="submit" class="fadeIn fourth" value="confirmemail">-->
+<!--            <input type="text" id="login" class="fadeIn second" name="code" placeholder=CODE>-->
+<!--        </form>-->
         <form method="post" action="signup/register">
             <input type="text" id="login" class="fadeIn second" name="login" placeholder=login required>
             <input type="email" id="email" class="fadeIn second" name="email" placeholder=youremail required>

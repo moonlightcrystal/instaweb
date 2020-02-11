@@ -12,6 +12,8 @@ class Model_Signup extends Model
     public static $queryInsertUser =
         'INSERT INTO users(login, email, password) VALUES(:login, :email, :passwd)';
 
+    public static  $queryChecklogin = "SELECT id FROM users WHERE login = :login";
+
 
     public function get_data()
     {
@@ -27,17 +29,15 @@ class Model_Signup extends Model
     public function registerUser()
     {
 
-        $data = array(':login' => $_POST['login'],
-            ':email' => $_POST['email'],
-            ':passwd' => password_hash($_POST['passwd'], PASSWORD_DEFAULT)
+        $data = array(':login' => $_SESSION['login'],
+            ':email' => $_SESSION['email'],
+            ':passwd' => $_SESSION['passwd']
         );
 
         if (!$this->pdo->upsert(self::$queryInsertUser, $data))
             return false;
-        $data = array(':login' => $_POST['login'],
-            ':mail' => $_POST['email']
-        );
-        return $this->pdo->select(self::$queryCheckUsers, $data)[0];
+        $data = [':login' => $_SESSION['login']];
+        return $this->pdo->select(self::$queryChecklogin, $data)[0];
     }
 
 }

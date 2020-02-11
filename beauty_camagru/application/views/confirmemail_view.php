@@ -1,3 +1,5 @@
+<?php
+?>
 <html>
 <style>
     @import url('https://fonts.googleapis.com/css?family=Poppins');
@@ -18,7 +20,7 @@
 
     h2 {
         text-align: center;
-        font-size: 16;
+        font-size: 16px;
         font-weight: 600;
         text-transform: uppercase;
         display: inline-block;
@@ -49,17 +51,17 @@
     }
 
     h2.inactive {
-        color: yellow;
+        color: deeppink;
         font-family: 'Orbitron', sans-serif;
     }
 
     h2.active {
-        color: deeppink;
+        color: yellow;
         border-bottom: 2px solid greenyellow;
-        font-family: 'Orbitron', sans-serif;
+        font-family: 'Orbitron', sans-serif;;
     }
 
-    input[type=submit] {
+    input[type=button], input[type=submit], input[type=reset] {
         background-color: blue;
         border: none;
         color: black;
@@ -73,11 +75,11 @@
         width: 85%;
     }
 
-    nput[type=submit]:hover {
+    input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
         background-color: blue;
     }
 
-    input[type=text], input[input=submit] {
+    input[type=text] {
         background-color: blue;
         color: #0d0d0d;
         padding: 15px 32px;
@@ -88,6 +90,7 @@
         margin: 5px;
         width: 85%;
         border: 2px solid greenyellow;
+        fon
     }
 
     input[type=password] {
@@ -101,6 +104,21 @@
         margin: 5px;
         width: 85%;
         border: 2px solid greenyellow;
+        fon
+    }
+
+    input[type=email] {
+        background-color: blue;
+        color: #0d0d0d;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 5px;
+        width: 85%;
+        border: 2px solid greenyellow;
+        fon
     }
 
     input[type=text]:focus {
@@ -109,19 +127,16 @@
     }
 
     ​</style>
-    <div id="formContent">
-        <h2 class="active"> Sign In </h2>
-        <a href="/signup"><h2 class="inactive underlineHover">Sign Up</h2></a>
-        ​
-        <div class="fadeIn first">
-            <img style="width: 377px; border-radius: 5px 5px 5px 5px;" src="images/profile.png" id="icon"
-                 alt="User Icon"/>
-        </div>
-        ​
-        <form method="post" action="signin/authenfication">
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-            <input type="password" id="password" class="fadeIn third" name="passwd" placeholder="password">
-            <input type="submit" class="fadeIn fourth" value="LogIn">
-        </form>
+<div id="formContent">
+    <a href="/signin"><h2 class="inactive underlineHover"> Sign In </h2></a>
+    <h2 class="active"> Sign Up </h2>
+    <div class="fadeIn first">
+        <img style="width: 377px; border-radius: 5px 5px 5px 5px;" src="images/profile.png" id="icon" alt="User Icon"/>
     </div>
+    ​
+    <form method="post" action="checkCode">
+        <input type="text" id="code" class="fadeIn second" name="code" value="CODE FROM EMAIL">
+        <input pattern="" type="submit" class="fadeIn fourth" value="CONFIRM">
+    </form>
+</div>
 </html>

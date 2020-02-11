@@ -6,4 +6,9 @@ class Controller_Signin extends Controller
     {
         $this->view->generate('signin_view.php', 'template_view_auth.php');
     }
+
+    function authenfication()
+    {
+            echo "HELLO CRIS";
+    }
 }
