@@ -8,22 +8,26 @@ class Model_Signup extends Model
 {
     use confirmEmailandUploadImg;
 
-    public static $queryCheckUsers = "SELECT id from users WHERE login = :login OR mail = :mail";
     public static $queryInsertUser =
         'INSERT INTO users(login, email, password) VALUES(:login, :email, :passwd)';
 
-    public static  $queryChecklogin = "SELECT id FROM users WHERE login = :login";
+    public static $queryCheckLogin = "SELECT id FROM users WHERE login = :login";
 
+    public static $queryCheckEmail = "SELECT id FROM users WHERE email = :email";
 
-    public function get_data()
+    
+    public function checkLoginAtRegister()
     {
-        {
-            $data = array(':login' => $_POST['login'],
-                ':mail' => $_POST['email']
-            );
-            return empty($this->pdo->select(self::$queryCheckUsers, $data))
-                ? false : true;
-        }
+        $data = [':login' => $_POST['login']];
+        return empty($this->pdo->select(self::$queryCheckLogin, $data))
+            ? false : true;
+    }
+
+    public function checkEmailAtRegister()
+    {
+        $data = [':email' => $_POST['email']];
+        return empty($this->pdo->select(self::$queryCheckEmail, $data))
+            ? false : true;
     }
 
     public function registerUser()
@@ -37,7 +41,7 @@ class Model_Signup extends Model
         if (!$this->pdo->upsert(self::$queryInsertUser, $data))
             return false;
         $data = [':login' => $_SESSION['login']];
-        return $this->pdo->select(self::$queryChecklogin, $data)[0];
+        return $this->pdo->select(self::$queryCheckLogin, $data)[0];
     }
 
 }

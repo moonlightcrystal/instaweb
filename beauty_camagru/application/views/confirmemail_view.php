@@ -135,7 +135,7 @@
     </div>
     ​
     <form method="post" action="checkCode">
-        <input type="text" id="code" class="fadeIn second" name="code" value="CODE FROM EMAIL">
+        <input type="text" id="code" class="fadeIn second" name="code">
         <input pattern="" type="submit" class="fadeIn fourth" value="CONFIRM">
     </form>
 </div>

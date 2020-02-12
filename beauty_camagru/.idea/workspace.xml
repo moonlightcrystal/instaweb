@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="552fba39-9481-49e9-8841-7f560f87e482" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/views/confirmemail_view.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/models/model_signin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Dockerfile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../IMG_1391.PNG" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../IMG_1392.PNG" beforeDir="false" />
@@ -14,14 +14,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/controller_signin.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/controller_signin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/controller_signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/controller_signup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/core/controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/core/controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/core/route.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/core/route.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/core/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/core/view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/model_signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/model_signup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/signin_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/signin_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/signup_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/signup_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/confirmemail_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/confirmemail_view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/template_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/template_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/template_view_auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/template_view_auth.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../blue.PNG" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../config/database.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../config/setup.php" beforeDir="false" />
@@ -118,7 +114,8 @@
       <workItem from="1580327223798" duration="5027000" />
       <workItem from="1581010071821" duration="5776000" />
       <workItem from="1581352150835" duration="12617000" />
-      <workItem from="1581439632618" duration="12826000" />
+      <workItem from="1581439632618" duration="13321000" />
+      <workItem from="1581528145262" duration="7827000" />
     </task>
     <servers />
   </component>
@@ -130,17 +127,17 @@
       <screen x="0" y="0" width="2560" height="1360" />
     </state>
     <state x="744" y="382" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1360@0.0.2560.1360" timestamp="1581017962321" />
-    <state x="1121" y="653" key="NewPhpFileDialog" timestamp="1581444344994">
+    <state x="1121" y="653" key="NewPhpFileDialog" timestamp="1581540498624">
       <screen x="0" y="0" width="2560" height="1360" />
     </state>
-    <state x="1121" y="653" key="NewPhpFileDialog/0.0.2560.1360@0.0.2560.1360" timestamp="1581444344994" />
+    <state x="1121" y="653" key="NewPhpFileDialog/0.0.2560.1360@0.0.2560.1360" timestamp="1581540498624" />
     <state x="1261" y="740" key="NewPhpFileDialog/0.0.2880.1540@0.0.2880.1540" timestamp="1580332129494" />
     <state x="1121" y="665" key="NewPhpFileDialog/0.23.2560.1337@0.23.2560.1337" timestamp="1581358913269" />
-    <state x="959" y="566" key="com.intellij.ide.util.TipDialog" timestamp="1581439660727">
+    <state x="959" y="566" key="com.intellij.ide.util.TipDialog" timestamp="1581528160198">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
     <state x="959" y="552" key="com.intellij.ide.util.TipDialog/0.0.2560.1360@0.0.2560.1360" timestamp="1581352151445" />
-    <state x="959" y="566" key="com.intellij.ide.util.TipDialog/0.23.2560.1337@0.23.2560.1337" timestamp="1581439660727" />
+    <state x="959" y="566" key="com.intellij.ide.util.TipDialog/0.23.2560.1337@0.23.2560.1337" timestamp="1581528160198" />
     <state x="945" y="345" key="run.anything.popup" timestamp="1581017451468">
       <screen x="0" y="0" width="2560" height="1360" />
     </state>

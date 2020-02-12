@@ -1,14 +1,36 @@
 <?php
+
 class Controller_Signin extends Controller
 {
+    function __construct()
+    {
+        parent::__construct();
+        $this->model = new Model_Signin();
+    }
 
     function action_index()
     {
         $this->view->generate('signin_view.php', 'template_view_auth.php');
     }
 
-    function authenfication()
+    function action_authenfication()
     {
-            echo "HELLO CRIS";
+        if (!empty($_POST['login'] && !empty($_POST['passwd']))) {
+            if (($info = $this->model->authentication())) {
+                if (password_verify($_POST['passwd'], $info['password'])) {
+                    $this->view->redirect('/main');
+                } else {
+                    echo "<script  type='text/javascript'>alert('incorrect password')</script>";
+                }
+            } else {
+                echo "<script  type='text/javascript'>alert('incorrect login')</script>";
+            }
+        }
+        $this->view->redirect('/signin');
+    }
+
+    function action_signout(){
+        session_destroy();
+        $this->view->redirect('/main');
     }
 }

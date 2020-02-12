@@ -1,6 +1,5 @@
 <?php
 
-print($_SESSION['id']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,13 +8,13 @@ print($_SESSION['id']);
 </head>
 <body>
 <header>
-    <?php if (isset($_SESSION['id']) && $_SESSION['id'] != "") {
+    <?php if (!empty($_SESSION['user_id'])) {
 
         echo '
         
         <a id="dope" href="/addpost">take a picture with dope</a>
         <a id="profile" href="/profile">PROFILE</a>
-        <a id="logout" href="/signin">LOGOUT</a>
+        <a id="logout" href="/signin/signout">LOGOUT</a>
         <a id="label" href="/">GALERY</a>
         
         ';
