@@ -11,24 +11,6 @@ class Model_Signup extends Model
     public static $queryInsertUser =
         'INSERT INTO users(login, email, password) VALUES(:login, :email, :passwd)';
 
-    public static $queryCheckLogin = "SELECT id FROM users WHERE login = :login";
-
-    public static $queryCheckEmail = "SELECT id FROM users WHERE email = :email";
-
-    
-    public function checkLoginAtRegister()
-    {
-        $data = [':login' => $_POST['login']];
-        return empty($this->pdo->select(self::$queryCheckLogin, $data))
-            ? false : true;
-    }
-
-    public function checkEmailAtRegister()
-    {
-        $data = [':email' => $_POST['email']];
-        return empty($this->pdo->select(self::$queryCheckEmail, $data))
-            ? false : true;
-    }
 
     public function registerUser()
     {

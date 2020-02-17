@@ -8,7 +8,7 @@
 </head>
 <body>
 <header>
-    <?php if (!empty($_SESSION['user_id'])) {
+    <?php if (!empty($_SESSION['user_id']) && isset($_SESSION)) {
 
         echo '
         

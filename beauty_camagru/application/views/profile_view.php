@@ -1,37 +1,38 @@
 <?php
-$_SESSION['login'] = 'kris';
-$_SESSION['mail'] = '1@mail.ru';
+//$_SESSION['login'] = 'kris';
+//$_SESSION['mail'] = '1@mail.ru';
+var_dump($_SESSION);
 ?>
 
 <html>
 <div id="formatprofile">
     <div class="infouser">
         <form action="/profile/changeAvatar" method="post" enctype="multipart/form-data">
-            <img src="../images/avatar.jpg">
+            <img src="images/<?php echo $_SESSION['avatar'];?>">
             <input type="file" name="image">
             <button type="submit">RESET</button>
         </form>
 
         <form action="/profile/changeLogin" method="post">
             <p>username: <?php echo $_SESSION['login']; ?></p>
-            <input type="text" placeholder="login">
+            <input type="text" name="login" placeholder="login">
             <button type="submit">RESET</button>
-        </form>
-
-        <form action="/profile/changeMail" method="post">
-            <p>email: <?php echo $_SESSION['mail']; ?></p>
-            <input type="email" placeholder="newemail" required>
-            <button type="submit">CONFIRM</button>
         </form>
 
         <form action="/profile/confirmMail" method="post">
-            <input type="text" placeholder="code from mail" required>
+            <p>email: <?php echo $_SESSION['email']; ?></p>
+            <input type="email" name='email' placeholder="newemail" required>
+            <button type="submit">CONFIRM</button>
+        </form>
+
+        <form action="/profile/changeEmail" method="post">
+            <input type="text" name='code' placeholder="code from mail" required>
             <button type="submit">RESET</button>
         </form>
 
-        <form action="/reset" method="post">
-            <input type="password" placeholder="oldpassword" required>
-            <input type="password" placeholder="newpassword" required>
+        <form action="/profile/changePassword" method="post">
+            <input type="password" name="oldpasswd" placeholder="oldpassword" required>
+            <input type="password"   name="newpasswd" placeholder="newpassword" required>
             <button type="submit">RESET</button>
         </form>
     </div>

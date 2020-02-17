@@ -43,9 +43,6 @@ class Controller_Signup extends Controller
 
         if (!empty($_POST['code']) && !empty($_SESSION['email'])) {
             if (($_SESSION['code'] == $_POST['code'])) {
-                var_dump($_SESSION);
-                echo '\n';
-                var_dump($_POST);
                 $fullUser = $this->model->registerUser();
                 $_SESSION['user_id'] = $fullUser['id'];
                 $this->view->redirect('/signin');

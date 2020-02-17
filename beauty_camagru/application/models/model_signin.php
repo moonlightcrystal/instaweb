@@ -2,7 +2,7 @@
 
 class Model_Signin extends Model
 {
-    public static $querySelectLogin = "SELECT id, password FROM users WHERE login = :login";
+    public static $querySelectLogin = "SELECT id,password,login,email FROM users WHERE login = :login";
 
     public function authentication()
     {

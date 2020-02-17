@@ -1,12 +1,10 @@
 <?php
-//include 'database.php';
-//include 'connection.php';
-require_once dirname(__FILE__)."/../core/pdo.php";
+require_once dirname(__FILE__) . "/../core/pdo.php";
 date_default_timezone_set('Europe/Moscow');
 
-$dbh = new createPdo($DB_DSN, $DB_USER, $DB_PASSWORD, $opt);
+$dbh = new createPdo();
 
-$dbh->upsert( "CREATE DATABASE IF NOT EXISTS camagru");
+$dbh->upsert("CREATE DATABASE IF NOT EXISTS camagru");
 echo "Database created successfully :3 <br>";
 
 $dbh->upsert("CREATE TABLE IF NOT EXISTS users
@@ -14,6 +12,7 @@ $dbh->upsert("CREATE TABLE IF NOT EXISTS users
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
     login VARCHAR(32) NOT NULL UNIQUE ,
     email VARCHAR(128) NOT NULL UNIQUE ,
+    avatar VARCHAR(128) UNIQUE ,
     password VARCHAR(255) NOT NULL);");
 
 $dbh->upsert(
