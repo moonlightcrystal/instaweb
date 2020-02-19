@@ -19,10 +19,11 @@ $dbh->upsert(
     "CREATE TABLE IF NOT EXISTS `images` ( 
     `photo_id` INT NOT NULL AUTO_INCREMENT , 
     `name` VARCHAR(77) NOT NULL , 
-    `likes` INT, 
+    `likes` INT DEFAULT 0, 
     `date` TIMESTAMP NOT NULL ,
     `login` VARCHAR(32) NOT NULL,
-    `title` VARCHAR(255), 
+    `title` VARCHAR(255),
+    `published` BOOL DEFAULT FALSE,
     FOREIGN KEY (`login`) REFERENCES `users` (`login`),
     PRIMARY KEY (`photo_id`), UNIQUE (`name`));");
 

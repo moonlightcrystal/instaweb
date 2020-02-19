@@ -6,6 +6,42 @@
     margin: 0;
 }
 
+#butttonFeed {
+    display: flex;
+    flex-direction: row;
+}
+
+#draftFeed {
+    display: flex;
+    flex-direction: column;
+    width: 8vw;
+    height: 8vw;
+    margin-bottom: 1vw;
+    justify-content: center;
+    border: black solid 1vw;
+    align-content: center;
+    margin-top: 1vw;
+    margin-right: 0.5vw;
+    margin-left: 1vw;
+}
+
+#draftFeed a {
+    background: #0d0d0d;
+    color: greenyellow;
+    /*text-align: center;*/
+    /*width: 8vw;*/
+}
+
+#feedAllDrafts {
+    display: flex;
+    flex-direction: row;
+}
+
+#draftFeed img {
+    width: 8vw;
+    height: 8vw;
+}
+
 body {
     width: 100%;
     height: 100%;

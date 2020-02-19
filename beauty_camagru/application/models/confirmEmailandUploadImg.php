@@ -10,7 +10,7 @@ trait confirmEmailandUploadImg
         $extension = pathinfo($image['name'], PATHINFO_EXTENSION);
         $filename = uniqid() . "." . $extension;
 
-        move_uploaded_file($image['tmp_name'], dirname(__FILE__) . '/../../images/' . $filename);
+        move_uploaded_file($image['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . $filename);
 
         return $filename;
     }
