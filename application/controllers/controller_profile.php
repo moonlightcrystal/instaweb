@@ -14,7 +14,8 @@ class Controller_Profile extends Controller
 
     function action_index()
     {
-        $this->view->generate('profile_view.php', 'template_view.php');
+        $data = $this->model->showOwnPublishPost($_SESSION['user_id']);
+        $this->view->generate('profile_view.php', 'template_view.php', $data);
     }
 
     function action_changeLogin()

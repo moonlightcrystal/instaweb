@@ -1,14 +1,14 @@
 <?php
 //$_SESSION['login'] = 'kris';
 //$_SESSION['mail'] = '1@mail.ru';
-var_dump($_SESSION);
+//var_dump($_SESSION);
 ?>
 
 <html>
 <div id="formatprofile">
     <div class="infouser">
         <form action="/profile/changeAvatar" method="post" enctype="multipart/form-data">
-            <img src="images/<?php echo $_SESSION['avatar'];?>">
+            <img src="uploads/<?php echo $_SESSION['avatar'];?>">
             <input type="file" name="image">
             <button type="submit">RESET</button>
         </form>
@@ -37,21 +37,31 @@ var_dump($_SESSION);
         </form>
     </div>
     <ul class="flex-container">
-        <li>
-            <div id="picture">
-                <p id="date" style="color: #0bbaa0">05/03/2012</p>
-                <div id="loginPicture">
-                    <img src="images/avatar.jpg">
-                    <p style="color: greenyellow">PARIS</p>
-                    <a href="">kris</a>
-                </div>
-                <img src="../images/keeet.png">
-                <div id="comment">
-                    <input name="comments" type="text" placeholder="add your comment">
-                    <button name="plus" type="button">Add comment</button>
-                </div>
-            </div>
-        </li>
+        <?php
+        var_dump($data);
+        if ($data) {
+            foreach ($data as $post):
+                ?>
+                <li>
+                    <div id="picture">
+                        <p id="date" style="color: #0bbaa0"><?= $post['date']; ?></p>
+                        <div id="loginPicture">
+                            <?php if (!empty($post['avatar'])) {?>
+                            <img src="uploads/<?= $post['avatar']; }?>">
+                            <p style="color: greenyellow"><?= $post['title']; ?></p>
+                            <a href=""><?= $post['login']; ?></a>
+                        </div>
+                        <img src="uploads/<?= $post['name']; ?>">
+                        <div id="comment">
+                            <?php if (!empty($_SESSION['user_id']) && isset($_SESSION)) { ?>
+                            <input name="comments" type="text" placeholder="add your comment">
+                            <button name="plus" type="button">Add comment</button>
+                        </div>
+                        <?php } else echo ''; ?>
+                    </div>
+                </li>
+            <? endforeach;
+        } ?>
     </ul>
 </div>
 </html>

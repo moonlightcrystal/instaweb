@@ -21,10 +21,10 @@ $dbh->upsert(
     `name` VARCHAR(77) NOT NULL , 
     `likes` INT DEFAULT 0, 
     `date` TIMESTAMP NOT NULL ,
-    `login` VARCHAR(32) NOT NULL,
+    `user_id` INT UNSIGNED NOT NULL,
     `title` VARCHAR(255),
     `published` BOOL DEFAULT FALSE,
-    FOREIGN KEY (`login`) REFERENCES `users` (`login`),
+    FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
     PRIMARY KEY (`photo_id`), UNIQUE (`name`));");
 
 

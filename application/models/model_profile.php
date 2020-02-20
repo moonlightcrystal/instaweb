@@ -17,6 +17,8 @@ class Model_Profile extends Model
 
     public static $queryUpdateAvatar = "UPDATE users SET avatar = :newValue WHERE id = :user_id";
 
+    public static $qureySelectPublishedPosts = "SELECT * FROM images WHERE published = true AND user_id = :user_id";
+
     public function __construct($user_id)
     {
         parent::__construct();
@@ -25,6 +27,8 @@ class Model_Profile extends Model
 
     function changeUserInfo($whatYouChange, $newValue)
     {
+        print($whatYouChange);
+        print($newValue);
         $data = array(
             ':newValue' => $newValue,
             ':user_id' => $this->userId
@@ -42,6 +46,14 @@ class Model_Profile extends Model
             return false;
         return true;
 
+    }
+
+    function showOwnPublishPost($user_id)
+    {
+        $data = [':user_id' => $user_id];
+        if (!$this->pdo->select(self::$qureySelectPublishedPosts, $data))
+            return false;
+        return true;
     }
 
 

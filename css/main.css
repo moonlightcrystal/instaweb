@@ -228,6 +228,7 @@ li {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    height: 76.8px;
 }
 
 #loginPicture img {

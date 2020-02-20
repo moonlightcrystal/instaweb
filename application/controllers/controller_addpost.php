@@ -14,7 +14,7 @@ class Controller_Addpost extends Controller
 
     function action_index()
     {
-        $data = $this->model->getUserImages($_SESSION['login']);
+        $data = $this->model->getUserImages($_SESSION['user_id']);
         $this->view->generate('addpost_view.php', 'template_view.php', $data);
     }
 
@@ -22,12 +22,15 @@ class Controller_Addpost extends Controller
     {
         if (isset($_POST) && !empty($_FILES['image'])) {
             if (($filename = $this->model->uploadImg($_FILES['image']))) {
-                if ($this->model->addPost($filename, $_SESSION['login'], $_POST['title'])) {
-                    $this->view->redirect('/addpost');
+                $path = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . $filename;
+                if (file_exists($path)) {
+                    if ($this->model->addPost($filename, $_SESSION['user_id'], $_POST['title'])) {
+                        $this->view->redirect('/addpost');
+                    }
                 }
 
-
             }
+            $this->view->redirect('/addpost');
         }
     }
 
@@ -45,9 +48,8 @@ class Controller_Addpost extends Controller
 
     function action_publishPost()
     {
-        if(isset($_POST) && !empty($_POST['image_id']))
-        {
-           $this->model->publish($_POST['image_id']);
+        if (isset($_POST) && !empty($_POST['image_id'])) {
+            $this->model->publish($_POST['image_id']);
         }
         $this->view->redirect('/');
     }
