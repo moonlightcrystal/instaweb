@@ -223,6 +223,29 @@ li {
     height: 15vw;
 }
 
+#likes input[type=image] {
+    width: 1vw;
+    height: 1vw;
+    margin-left: 1vw;
+}
+
+#likes img {
+    width: 1vw;
+    height: 1vw;
+    margin-left: 1vw;
+}
+
+#likes p {
+    color: #21F520;
+    margin-left: 1vw;
+    font-size: x-large;
+}
+
+#likes {
+    display: flex;
+    flex-direction: row;
+}
+
 #loginPicture {
     display: flex;
     flex-direction: row;

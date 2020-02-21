@@ -82,8 +82,11 @@ class Controller_Profile extends Controller
     {
         if (isset($_POST) && !empty($_FILES['image'])) {
             $avatarname = $this->model->uploadImg($_FILES['image']);
-            $this->model->changeUserInfo('avatar', $avatarname);
-            $_SESSION['avatar'] = $avatarname;
+            $path = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . $avatarname;
+            if(file_exists($path)) {
+                $this->model->changeUserInfo('avatar', $avatarname);
+                $_SESSION['avatar'] = $avatarname;
+            }
             $this->view->redirect('/profile');
         }
     }

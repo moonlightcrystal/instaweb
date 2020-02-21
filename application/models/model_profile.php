@@ -19,6 +19,8 @@ class Model_Profile extends Model
 
     public static $qureySelectPublishedPosts = "SELECT * FROM images WHERE published = true AND user_id = :user_id";
 
+//     public $c = "SELECT * FROM images LEFT JOIN users on(user_id) WHERE published = true AND images.user_id = users.id ORDER BY date DESC";
+
     public function __construct($user_id)
     {
         parent::__construct();
@@ -51,9 +53,7 @@ class Model_Profile extends Model
     function showOwnPublishPost($user_id)
     {
         $data = [':user_id' => $user_id];
-        if (!$this->pdo->select(self::$qureySelectPublishedPosts, $data))
-            return false;
-        return true;
+        return $this->pdo->select(self::$qureySelectPublishedPosts, $data);
     }
 
 

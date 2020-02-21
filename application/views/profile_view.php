@@ -1,14 +1,14 @@
 <?php
-//$_SESSION['login'] = 'kris';
-//$_SESSION['mail'] = '1@mail.ru';
-//var_dump($_SESSION);
 ?>
 
 <html>
 <div id="formatprofile">
     <div class="infouser">
         <form action="/profile/changeAvatar" method="post" enctype="multipart/form-data">
-            <img src="uploads/<?php echo $_SESSION['avatar'];?>">
+            <?php if (!empty($_SESSION['avatar'])) { ?>
+            <img src="uploads/<?= $_SESSION['avatar'];
+            echo '">';
+            } ?> ">
             <input type="file" name="image">
             <button type="submit">RESET</button>
         </form>
@@ -32,13 +32,12 @@
 
         <form action="/profile/changePassword" method="post">
             <input type="password" name="oldpasswd" placeholder="oldpassword" required>
-            <input type="password"   name="newpasswd" placeholder="newpassword" required>
+            <input type="password" name="newpasswd" placeholder="newpassword" required>
             <button type="submit">RESET</button>
         </form>
     </div>
     <ul class="flex-container">
         <?php
-        var_dump($data);
         if ($data) {
             foreach ($data as $post):
                 ?>
@@ -46,12 +45,21 @@
                     <div id="picture">
                         <p id="date" style="color: #0bbaa0"><?= $post['date']; ?></p>
                         <div id="loginPicture">
-                            <?php if (!empty($post['avatar'])) {?>
-                            <img src="uploads/<?= $post['avatar']; }?>">
+                            <?php if (!empty($_SESSION['avatar'])) { ?>
+                            <img src="uploads/<?= $_SESSION['avatar'];
+                            echo '">';
+                            } ?> ">
                             <p style="color: greenyellow"><?= $post['title']; ?></p>
                             <a href=""><?= $post['login']; ?></a>
                         </div>
                         <img src="uploads/<?= $post['name']; ?>">
+                        <div id="likes">
+                            <img src="images/hart.png">
+<!--                            <input type="image" src="images/hart.png">-->
+<!--                            <input hidden name=image_id value='--><?//= $post['photo_id'] ?><!--'>-->
+                            <!--                            <button type="submit"><img id="heart" src="images/hart.png"></button>-->
+                            <p><?= $post['likes']; ?></p>
+                        </div>
                         <div id="comment">
                             <?php if (!empty($_SESSION['user_id']) && isset($_SESSION)) { ?>
                             <input name="comments" type="text" placeholder="add your comment">
