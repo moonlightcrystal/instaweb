@@ -10,8 +10,6 @@
     $likes = array();
     if ($data) {
         foreach ($data as $post):
-//            var_dump($post);
-//        var_dump($_SESSION);
             ?>
             <li>
                 <div id="picture">
@@ -29,8 +27,6 @@
                             <?php if (!empty($_SESSION['user_id']) && isset($_SESSION) && $post['login'] != $_SESSION['login']) { ?>
                                 <input type="image" src="images/hart.png">
                                 <input hidden name=image_id value='<?= $post['photo_id'] ?>'>
-<!--                                <input hidden name=arrayLikes value='--><?//= $post[''] ?><!--'>-->
-                                <!--                            <button type="submit"><img id="heart" src="images/hart.png"></button>-->
                                 <p><?= $post['likes']; ?></p>
                             <?php } else echo '  <img src="images/hart.png"> ' . '<p>' . $post['likes'] . '</p>'; ?>
                         </div>

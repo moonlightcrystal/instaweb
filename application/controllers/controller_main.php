@@ -17,13 +17,9 @@ class Controller_Main extends Controller
 
     function action_addLike()
     {
-        $likes = array();
         if (isset($_POST) && !empty($_POST['image_id'])) {
             $this->model->insertLikes($_POST['image_id']);
-//            $_POST['arrayLikes'] = array_push($_POST['arrayLikes']);
-            return(array_unshift($likes, $_POST['image_id']));
-            var_dump($likes);
         }
-//        $this->view->redirect('/');
+        $this->view->redirect('/');
     }
 }

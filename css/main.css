@@ -204,6 +204,12 @@ li {
     margin-top: 1vw;
 }
 
+#lineAddTakePhoto {
+    display: flex;
+    flex-direction: column;
+    background: darksalmon;
+}
+
 #block{
     display: flex;
     flex-direction: column;
