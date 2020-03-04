@@ -19,7 +19,6 @@ $dbh->upsert(
     "CREATE TABLE IF NOT EXISTS `images` ( 
     `photo_id` INT NOT NULL AUTO_INCREMENT , 
     `name` VARCHAR(77) NOT NULL , 
-    `likes` INT DEFAULT 0, 
     `date` TIMESTAMP NOT NULL ,
     `user_id` INT UNSIGNED NOT NULL,
     `title` VARCHAR(255),
@@ -34,8 +33,20 @@ $dbh->upsert(
     `author` VARCHAR(32),
     `date` TIMESTAMP NOT NULL ,
     `photo_id` INT NOT NULL,
+    `text_comment` TEXT, 
     FOREIGN KEY (`author`) REFERENCES `users` (`login`),
     FOREIGN KEY (`photo_id`) REFERENCES `images` (`photo_id`),
     PRIMARY KEY (`comment_id`));");
 
+$dbh->upsert(
+    "CREATE TABLE IF NOT EXISTS likes (
+				user_id		INT UNSIGNED,
+				image_id	INT,
+				PRIMARY KEY (user_id, image_id),
+				FOREIGN KEY (user_id) REFERENCES `users`(`id`)
+					ON DELETE CASCADE,
+				FOREIGN KEY (image_id) REFERENCES images(photo_id)
+					ON DELETE CASCADE
+			)"
+);
 //phpinfo();

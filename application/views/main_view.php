@@ -7,7 +7,6 @@
 
 <ul class="flex-container">
     <?php
-    $likes = array();
     if ($data) {
         foreach ($data as $post):
             ?>
@@ -24,17 +23,31 @@
                     <img src="uploads/<?= $post['name']; ?>">
                     <form action="/main/addLike" method="post">
                         <div id="likes">
-                            <?php if (!empty($_SESSION['user_id']) && isset($_SESSION) && $post['login'] != $_SESSION['login']) { ?>
-                                <input type="image" src="images/hart.png">
+                            <?php if (!empty($_SESSION['user_id'])) { ?>
+                                <input type="image" src="images/hart.png" onclick="">
                                 <input hidden name=image_id value='<?= $post['photo_id'] ?>'>
                                 <p><?= $post['likes']; ?></p>
                             <?php } else echo '  <img src="images/hart.png"> ' . '<p>' . $post['likes'] . '</p>'; ?>
                         </div>
                     </form>
-                    <div id="comment">
-                        <?php if (!empty($_SESSION['user_id']) && isset($_SESSION)) { ?>
-                        <input name="comments" type="text" placeholder="add your comment">
-                        <button name="plus" type="button">Add comment</button>
+
+                    <form action="/main/addComment" method="post">
+                        <div id="comment">
+                            <?php if (!empty($_SESSION['user_id']) && isset($_SESSION['login'])) { ?>
+                            <input name="comments" type="text" placeholder="add your comment">
+                            <input hidden name=image_id value='<?= $post['photo_id'] ?>'>
+                            <button id="addComment" name="plus" type="submit">Add comment</button>
+                        </div>
+                    </form>
+
+                    <div id="linecomments">
+
+                        <div id="allComments">
+                            <?php
+                            foreach ($post['comment'] as $comment):
+                            ?>
+                            <p><?= $comment["author"]; ?> : <?= $comment["text_comment"]; ?> <?= $comment["date"]; endforeach; ?></p>
+                        </div>
                     </div>
                     <?php } else echo ''; ?>
                 </div>
@@ -42,3 +55,22 @@
         <? endforeach;
     } ?>
 </ul>
+
+<!--<script>-->
+<!--    let buttonAddComment = document.getElementById('addComment'),-->
+<!--        xmlhttp = new XMLHttpRequest();-->
+<!--    buttonAddComment.addEventListener('click', function () {-->
+<!--        let name = document.getElementById('author').value.replace(/<[^>]+>/g, ''),-->
+<!--            comment = document.getElementById('comments').value.replace(/<[^>]+>/g, ''),-->
+<!--            image_id = document.getElementById('image_id').value.replace(/<[^>]+>/g, '');-->
+<!--        if (name === '' | comment === '') {-->
+<!--            alert('Заполни коммент йо');-->
+<!--            return false;-->
+<!--        }-->
+<!--        xmlhttp.open('post', '/main/addComment', true)-->
+<!--        xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');-->
+<!--        xmlhttp.send("name=" + encodeURIComponent(name) + "&comment=" + encodeURIComponent(comment) + "&image_id=" + encodeURIComponent(image_id));-->
+<!---->
+<!--    });-->
+<!---->
+<!--</script>-->

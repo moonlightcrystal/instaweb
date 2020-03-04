@@ -380,3 +380,13 @@ div img {
 }
 
 
+#allComments {
+    background: lightgreen;
+    display: flex;
+    flex-direction: column;
+}
+
+#linecomments {
+    display: flex;
+    flex-direction: column;
+}
