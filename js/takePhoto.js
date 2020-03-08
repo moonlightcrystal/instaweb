@@ -1,80 +1,147 @@
-const videoPlayer = document.querySelector("#player");
-const canvasElement = document.querySelector("#canvas");
-const captureButton = document.querySelector("#capture-btn");
-const imagePicker = document.querySelector("#image-picker");
-const imagePickerArea = document.querySelector("#pick-image");
-const newImages = document.querySelector("#newImages");
+let webcamStream;
 
-// Image dimensions
-const width = 320;
-const height = 240;
-let zIndex = 1;
+function startWebcam() {
+    // запросить видео и аудио поток с веб-камеры пользователя
+    navigator.mediaDevices.getUserMedia({
+        video: true
+    }).then((stream) => {
+        let video = document.querySelector('#video');
+        video.srcObject = stream;
+        video.play();
 
-const createImage = (src, alt, title, width, height, className) => {
-    let newImg = document.createElement("img");
+        webcamStream = stream;
+    }).catch((error) => {
+        console.log('navigator.getUserMedia error: ', error);
+    });
+}
 
-    if (src !== null) newImg.setAttribute("src", src);
-    if (alt !== null) newImg.setAttribute("alt", alt);
-    if (title !== null) newImg.setAttribute("title", title);
-    if (width !== null) newImg.setAttribute("width", width);
-    if (height !== null) newImg.setAttribute("height", height);
-    if (className !== null) newImg.setAttribute("class", className);
+function stopWebcam() {
+    webcamStream.getTracks()[0].stop(); // video
+}
 
-    return newImg;
-};
+var canvas, ctx;
 
-const startMedia = () => {
-    if (!("mediaDevices" in navigator)) {
-        navigator.mediaDevices = {};
-    }
+function init() {
+    // Получить холст и получить контекст для
+    // рисования в нём
+    canvas = document.getElementById("canvas");
+    ctx = canvas.getContext('2d');
+}
 
-    if (!("getUserMedia" in navigator.mediaDevices)) {
-        navigator.mediaDevices.getUserMedia = constraints => {
-            const getUserMedia =
-                navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+function snapshot() {
+    // Рисует текущее изображение из видео элемента в холст
+    ctx.drawImage(video, 0,0, canvas.width, canvas.height);
+}
 
-            if (!getUserMedia) {
-                return Promise.reject(new Error("getUserMedia is not supported"));
-            } else {
-                return new Promise((resolve, reject) =>
-                    getUserMedia.call(navigator, constraints, resolve, reject)
-                );
-            }
-        };
-    }
+function addToDraft() {
+    let picture = canvas.toDataURL();
+    // console.log(picture);
+    // const xhr = new XMLHttpRequest();
+    // xhr.open('POST', '/addpost/createDraft');
+    // xhr.send();
 
-    navigator.mediaDevices
-        .getUserMedia({video: true})
-        .then(stream => {
-            videoPlayer.srcObject = stream;
-            videoPlayer.style.display = "block";
-        })
-        .catch(err => {
-            imagePickerArea.style.display = "block";
-        });
-};
-
-// Capture the image, save it and then paste it to the DOM
-captureButton.addEventListener("click", event => {
-    // Draw the image from the video player on the canvas
-    canvasElement.style.display = "block";
-    const context = canvasElement.getContext("2d");
-    context.drawImage(videoPlayer, 0, 0, canvas.width, canvas.height);
-
-    videoPlayer.srcObject.getVideoTracks().forEach(track => {
-        // track.stop();
+    fetch('/addpost/createDraft', {
+        method : 'post',
+        body   : "HELLO"
     });
 
-    // Convert the data so it can be saved as a file
-    let picture = canvasElement.toDataURL();
+    // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    //
+    // xhr.onreadystatechange = function() {
+    //     if ((this.readyState == 4) && (this.status == 200))
+    //     {
+    //         new_thumb = document.createElement("img");
+    //         document.getElementById("feedAllDrafts").appendChild(new_thumb);
+    //         new_thumb.setAttribute("src", this.response);
+    //         new_thumb.setAttribute("id", this.response);
+    //         new_thumb.setAttribute("onClick", `deleteImage("${this.response}")`);
+    //     }
+    //
+    // }
+    // // const data = "superposable=" + checkedBox + "&image=" + picture;
+    // const data = "&image=" + picture;
+    // xhr.send(data);
+}
 
-    // Save the file by posting it to the server
-    fetch("", {
-        method: "post",
-        body: JSON.stringify({data: picture})
-    })
-        .then(res => res.json())
-        .catch(error => console.log(error));
-});
 
-window.addEventListener("load", event => startMedia());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const startMedia = () => {
+//     if (!("mediaDevices" in navigator)) {
+//         navigator.mediaDevices = {};
+//     }
+//
+//     if (!("getUserMedia" in navigator.mediaDevices)) {
+//         navigator.mediaDevices.getUserMedia = constraints => {
+//             const getUserMedia =
+//                 navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+//
+//             if (!getUserMedia) {
+//                 return Promise.reject(new Error("getUserMedia is not supported"));
+//             } else {
+//                 return new Promise((resolve, reject) =>
+//                     getUserMedia.call(navigator, constraints, resolve, reject)
+//                 );
+//             }
+//         };
+//     }
+//
+//     navigator.mediaDevices
+//         .getUserMedia({video: true})
+//         .then(stream => {
+//             videoPlayer.srcObject = stream;
+//             videoPlayer.style.display = "block";
+//         })
+//         .catch(err => {
+//             imagePickerArea.style.display = "block";
+//         });
+// };
+//
+// // Capture the image, save it and then paste it to the DOM
+// captureButton.addEventListener("click", event => {
+//     // Draw the image from the video player on the canvas
+//     canvasElement.style.display = "block";
+//     const context = canvasElement.getContext("2d");
+//     context.drawImage(videoPlayer, 0, 0, canvas.width, canvas.height);
+//
+//     videoPlayer.srcObject.getVideoTracks().forEach(track => {
+//         // track.stop();
+//     });
+//
+//     // Convert the data so it can be saved as a file
+//     let picture = canvasElement.toDataURL();
+//
+//     // Save the file by posting it to the server
+//     fetch("", {
+//         method: "post",
+//         body: JSON.stringify({data: picture})
+//     })
+//         .then(res => res.json())
+//         .catch(error => console.log(error));
+// });
+//
+// window.addEventListener("load", event => startMedia());

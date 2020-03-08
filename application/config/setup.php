@@ -34,9 +34,12 @@ $dbh->upsert(
     `date` TIMESTAMP NOT NULL ,
     `photo_id` INT NOT NULL,
     `text_comment` TEXT, 
-    FOREIGN KEY (`author`) REFERENCES `users` (`login`),
-    FOREIGN KEY (`photo_id`) REFERENCES `images` (`photo_id`),
-    PRIMARY KEY (`comment_id`));");
+    FOREIGN KEY (`author`) REFERENCES `users` (`login`)
+        ON DELETE CASCADE,
+    FOREIGN KEY (`photo_id`) REFERENCES `images` (`photo_id`)
+        ON DELETE CASCADE,
+    PRIMARY KEY (`comment_id`))
+    ");
 
 $dbh->upsert(
     "CREATE TABLE IF NOT EXISTS likes (

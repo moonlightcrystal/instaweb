@@ -114,4 +114,9 @@ class Controller_Addpost extends Controller
         }
         $this->view->redirect('/');
     }
+
+    function action_createDraft() {
+        var_dump($_POST);
+        echo "<script  type='text/javascript'>alert('incorrect password')</script>";
+    }
 }

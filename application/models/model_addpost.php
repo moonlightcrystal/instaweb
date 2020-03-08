@@ -14,7 +14,7 @@ class Model_Addpost extends Model
 
     public static $querySelectUserImages = "SELECT * FROM images WHERE user_id = :user_id";
 
-    public static $queryDropUsers = "DELETE FROM images WHERE photo_id = :photo_id";
+    public static $queryDropUsers = "DELETE FROM images WHERE images.photo_id = :photo_id";
 
     public function addPost($imageName, $user_id, $title = null)
     {
