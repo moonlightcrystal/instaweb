@@ -28,66 +28,110 @@ function init() {
     ctx = canvas.getContext('2d');
 }
 
-function snapshot() {
-    // Рисует текущее изображение из видео элемента в холст
-    ctx.drawImage(video, 0,0, canvas.width, canvas.height);
+function switchFilter() {
+
 }
 
-function addToDraft() {
-    let picture = canvas.toDataURL();
+function snapshot() {
+    // Рисует текущее изображение из видео элемента в холст
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+}
+
+function checkedFilter() {
+    let filters = document.getElementById("filters")
+    let inputs = filters.getElementsByTagName('input');
+    for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].checked) {
+            if (inputs[i].value == 'GTA')
+                return document.getElementById("imgGTA").getAttribute('src');
+            else if (inputs[i].value == 'vaporwave')
+                return document.getElementById("imgVaporwave").getAttribute('src');
+            else if (inputs[i].value == 'bol')
+                return document.getElementById("imgBol").getAttribute('src');
+        }
+    }
+}
+
+let makeEffect = document.getElementById("makeEffect");
+
+makeEffect.addEventListener("click", function () {
+    canvas = document.getElementById("canvas");
+    ctx = canvas.getContext('2d');
+
+    let image_cam = new Image();
+    image_cam.src = canvas.toDataURL();
+
+    image_cam.onload = function () {
+        ctx.drawImage(image_cam, 0, 0, 320, 240);
+        let image_filter = new Image();
+        image_filter.src = checkedFilter();
+        image_filter.onload = function () {
+            ctx.drawImage(image_filter, 0, 0, 320, 240);
+            let img = canvas.toDataURL("image/png");
+            canvas.setAttribute('img', img);
+        }
+    };
+
+
+}, { once: true });
+
+
+function makeFilter() {
+    canvas = document.getElementById("canvas");
+    ctx = canvas.getContext('2d');
+
+    let image_cam = new Image();
+    image_cam.src = canvas.toDataURL();
+
+    image_cam.onload = function () {
+        ctx.drawImage(image_cam, 0, 0, 320, 240);
+        let image_filter = new Image();
+        image_filter.src = checkedFilter();
+        image_filter.onload = function () {
+            ctx.drawImage(image_filter, 0, 0, 320, 240);
+            let img = canvas.toDataURL("image/png");
+            canvas.setAttribute('img', img);
+        }
+    };
+
+}
+
+async function addToDraft() {
+    // let picture = canvas.toDataURL();
     // console.log(picture);
     // const xhr = new XMLHttpRequest();
     // xhr.open('POST', '/addpost/createDraft');
     // xhr.send();
 
-    fetch('/addpost/createDraft', {
-        method : 'post',
-        body   : "HELLO"
-    });
 
-    // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    //
-    // xhr.onreadystatechange = function() {
-    //     if ((this.readyState == 4) && (this.status == 200))
-    //     {
-    //         new_thumb = document.createElement("img");
-    //         document.getElementById("feedAllDrafts").appendChild(new_thumb);
-    //         new_thumb.setAttribute("src", this.response);
-    //         new_thumb.setAttribute("id", this.response);
-    //         new_thumb.setAttribute("onClick", `deleteImage("${this.response}")`);
-    //     }
-    //
-    // }
-    // // const data = "superposable=" + checkedBox + "&image=" + picture;
-    // const data = "&image=" + picture;
-    // xhr.send(data);
+    var data = new FormData();
+    data.append('file', picture);
+    data.append('user', 'hubot');
+
+    // let picture = canvas.toDataURL();
+    const response = await fetch('/addpost/createDraft', {
+        method: 'POST',
+        body: data
+    });
+    alert(await response.text());
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//
+// xhr.onreadystatechange = function() {
+//     if ((this.readyState == 4) && (this.status == 200))
+//     {
+//         new_thumb = document.createElement("img");
+//         document.getElementById("feedAllDrafts").appendChild(new_thumb);
+//         new_thumb.setAttribute("src", this.response);
+//         new_thumb.setAttribute("id", this.response);
+//         new_thumb.setAttribute("onClick", `deleteImage("${this.response}")`);
+//     }
+//
+// }
+// // const data = "superposable=" + checkedBox + "&image=" + picture;
+// const data = "&image=" + picture;
 
 
 // const startMedia = () => {
