@@ -115,7 +115,20 @@ class Controller_Addpost extends Controller
         $this->view->redirect('/');
     }
 
-    function action_createDraft() {
-        var_dump($_POST);
+    function action_createDraft()
+    {
+        if (isset($_POST) && !empty($_POST['file'])) {
+            $img = str_replace('data:image/png;base64,', '', $_POST['file']);
+            $img = str_replace(' ', '+', $img);
+            $dec_img = base64_decode($img);
+            $name = uniqid() . ".png";
+            file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/uploads/' . $name, $dec_img);
+//            var_dump($dec_img);
+//            $picture = imagecreatefromstring($dec_img);
+//            var_dump($picture);
+//            move_uploaded_file($img, $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . 'jdjfk');
+            $this->model->addPost($name, $_SESSION['user_id'], $_POST['title']);
+        }
+
     }
 }

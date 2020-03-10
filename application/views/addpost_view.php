@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+<!--    <link rel="stylesheet" type="text/css" href="css/main.css">-->
     <meta name="viewport"
           content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 </head>
@@ -40,7 +40,6 @@
         </div>
     </div>
     <form action="/addpost/addPostToDraft" method="post" enctype="multipart/form-data">
-        <input type="text" name="title"><br>
         <input type="file" name="image"><br>
         <button type="submit">GO</button>
     </form>
@@ -54,8 +53,7 @@
         foreach ($data as $post):
             ?>
             <div id="draftFeed">
-                <a><?= $post['title']; ?></a>
-                <img src="uploads/<?= $post['name']; ?>">
+                <img id="yourphoto" src="uploads/<?= $post['name']; ?>">
                 <div id="butttonFeed">
                     <form action="/addpost/publishPost" method="post">
                         <input hidden name=image_id value='<?= $post['photo_id']; ?>'>

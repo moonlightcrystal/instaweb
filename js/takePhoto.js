@@ -52,69 +52,102 @@ function checkedFilter() {
     }
 }
 
+function createPhotoFilter() {
+    canvas = document.getElementById("canvas");
+    ctx = canvas.getContext('2d');
+
+    let image_cam = new Image();
+    image_cam.src = canvas.toDataURL();
+
+    image_cam.onload = function () {
+        ctx.drawImage(image_cam, 0, 0, 320, 240);
+        let image_filter = new Image();
+        image_filter.src = checkedFilter();
+        image_filter.onload = function () {
+            ctx.drawImage(image_filter, 0, 0, 204.8, 204.8);
+            let Newimg = canvas.toDataURL("image/png");
+            canvas.setAttribute('img', Newimg);
+        }
+    };
+}
+
 let makeEffect = document.getElementById("makeEffect");
 
 makeEffect.addEventListener("click", function () {
-    canvas = document.getElementById("canvas");
-    ctx = canvas.getContext('2d');
+    createPhotoFilter();
+}, {once: true});
 
-    let image_cam = new Image();
-    image_cam.src = canvas.toDataURL();
-
-    image_cam.onload = function () {
-        ctx.drawImage(image_cam, 0, 0, 320, 240);
-        let image_filter = new Image();
-        image_filter.src = checkedFilter();
-        image_filter.onload = function () {
-            ctx.drawImage(image_filter, 0, 0, 320, 240);
-            let img = canvas.toDataURL("image/png");
-            canvas.setAttribute('img', img);
-        }
-    };
-
-
-}, { once: true });
-
-
-function makeFilter() {
-    canvas = document.getElementById("canvas");
-    ctx = canvas.getContext('2d');
-
-    let image_cam = new Image();
-    image_cam.src = canvas.toDataURL();
-
-    image_cam.onload = function () {
-        ctx.drawImage(image_cam, 0, 0, 320, 240);
-        let image_filter = new Image();
-        image_filter.src = checkedFilter();
-        image_filter.onload = function () {
-            ctx.drawImage(image_filter, 0, 0, 320, 240);
-            let img = canvas.toDataURL("image/png");
-            canvas.setAttribute('img', img);
-        }
-    };
-
+function isCanvasBlank(canvas) {
+    return !canvas.getContext('2d')
+        .getImageData(0, 0, canvas.width, canvas.height).data
+        .some(channel => channel !== 0);
 }
+
 
 async function addToDraft() {
-    // let picture = canvas.toDataURL();
-    // console.log(picture);
-    // const xhr = new XMLHttpRequest();
-    // xhr.open('POST', '/addpost/createDraft');
-    // xhr.send();
+    let picture = document.getElementById("canvas");
+    if (isCanvasBlank(picture) === false) {
+        picture = picture.toDataURL();
+        let data = new FormData();
+        data.append('file', picture);
+        const response = await fetch('/addpost/createDraft', {
+            method: 'POST',
+            body: data
+        });
+        location.reload();
 
-
-    var data = new FormData();
-    data.append('file', picture);
-    data.append('user', 'hubot');
-
-    // let picture = canvas.toDataURL();
-    const response = await fetch('/addpost/createDraft', {
-        method: 'POST',
-        body: data
-    });
-    alert(await response.text());
+        console.log(data);
+        console.log(picture);
+        // alert(await response.text());
+    }
 }
+
+
+// let feedAllDrafts = document.getElementById("feedAllDrafts");
+// let basicpost = document.createElement('div');
+// basicpost.id = "draftFeed";
+// let photo = document.createElement("img");
+// photo.id = "yourphoto";
+// photo.setAttribute("src", picture);
+// basicpost.appendChild(photo);
+// feedAllDrafts.append(basicpost);
+
+
+//
+// let readyimg = document.createElement("img");
+// document.getElementById("")
+//
+// createimg.setAttribute("src", picture);
+// document.getElementById("draftFeed").appendChild(createimg);
+
+// function makeFilter() {
+
+
+// let picture = canvas.toDataURL();
+// console.log(picture);
+// const xhr = new XMLHttpRequest();
+// xhr.open('POST', '/addpost/createDraft');
+// xhr.send();
+
+
+//     canvas = document.getElementById("canvas");
+//     ctx = canvas.getContext('2d');
+//
+//     let image_cam = new Image();
+//     image_cam.src = canvas.toDataURL();
+//
+//     image_cam.onload = function () {
+//         ctx.drawImage(image_cam, 0, 0, 320, 240);
+//         let image_filter = new Image();
+//         image_filter.src = checkedFilter();
+//         image_filter.onload = function () {
+//             ctx.drawImage(image_filter, 0, 0, 320, 240);
+//             let img = canvas.toDataURL("image/png");
+//             canvas.setAttribute('img', img);
+//         }
+//     };
+//
+// }
 
 
 // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

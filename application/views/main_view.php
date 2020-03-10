@@ -17,7 +17,6 @@
                         <?php if (!empty($post['avatar'])) { ?>
                         <img src="uploads/<?= $post['avatar'];
                         } ?>">
-                        <p style="color: greenyellow"><?= $post['title']; ?></p>
                         <a href=""><?= $post['login']; ?></a>
                     </div>
                     <img src="uploads/<?= $post['name']; ?>">
@@ -46,7 +45,8 @@
                             <?php
                             foreach ($post['comment'] as $comment):
                             ?>
-                            <p><?= $comment["author"]; ?> : <?= $comment["text_comment"]; ?> <?= $comment["date"]; endforeach; ?></p>
+                            <p><?= $comment["author"]; ?> : <?= $comment["text_comment"]; ?> <?= $comment["date"];
+                                endforeach; ?></p>
                         </div>
                     </div>
                     <?php } else echo ''; ?>

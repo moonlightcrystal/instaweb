@@ -21,7 +21,6 @@ $dbh->upsert(
     `name` VARCHAR(77) NOT NULL , 
     `date` TIMESTAMP NOT NULL ,
     `user_id` INT UNSIGNED NOT NULL,
-    `title` VARCHAR(255),
     `published` BOOL DEFAULT FALSE,
     FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
     PRIMARY KEY (`photo_id`), UNIQUE (`name`));");
