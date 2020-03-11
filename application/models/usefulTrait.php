@@ -1,9 +1,22 @@
 <?php
 
-trait confirmEmailandUploadImg
+trait usefulTrait
 {
     public static $queryCheckLogin = "SELECT id FROM users WHERE login = :login";
     public static $queryCheckEmail = "SELECT id FROM users WHERE email = :email";
+    public static $queryCountLikes = "SELECT COUNT(*) from likes WHERE likes.image_id = :image_id";
+    public static $querySelectComments = "SELECT * FROM comments WHERE comments.photo_id = :image_id";
+
+    public function countLikes($imgId)
+    {
+        $likes = $this->pdo->select(self::$queryCountLikes, $imgId);
+        return ($likes[0]["COUNT(*)"]);
+    }
+
+    public function arrayComments($imgId)
+    {
+        return ($this->pdo->select(self::$querySelectComments, $imgId));
+    }
 
     public function uploadImg($image)
     {

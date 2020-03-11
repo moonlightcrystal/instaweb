@@ -1,12 +1,12 @@
 <?php
-require_once "confirmEmailandUploadImg.php";
+require_once "usefulTrait.php";
 
 
 class Model_Profile extends Model
 {
 
 
-    use confirmEmailandUploadImg;
+    use usefulTrait;
     private $userId;
 
     public static $queryUpdateLogin = "UPDATE users SET login = :newValue WHERE id = :user_id";
@@ -17,7 +17,10 @@ class Model_Profile extends Model
 
     public static $queryUpdateAvatar = "UPDATE users SET avatar = :newValue WHERE id = :user_id";
 
-    public static $qureySelectPublishedPosts = "SELECT * FROM images WHERE published = true AND user_id = :user_id";
+    public static $querySelectPublishedPosts =  "SELECT *  FROM images
+            LEFT JOIN users ON images.user_id = users.id
+            WHERE images.published = true AND images.user_id = :user_id
+            ORDER BY date DESC";
 
 //     public $c = "SELECT * FROM images LEFT JOIN users on(user_id) WHERE published = true AND images.user_id = users.id ORDER BY date DESC";
 
@@ -53,7 +56,14 @@ class Model_Profile extends Model
     function showOwnPublishPost($user_id)
     {
         $data = [':user_id' => $user_id];
-        return $this->pdo->select(self::$qureySelectPublishedPosts, $data);
+        $allData =  $this->pdo->select(self::$querySelectPublishedPosts, $data);
+
+        foreach ($allData as &$image) {
+            $dataImgId = [':image_id' => $image['photo_id']];
+            $image['likes'] = $this->countLikes($dataImgId);
+            $image['comment'] = $this->arrayComments($dataImgId);
+        }
+        return $allData;
     }
 
 

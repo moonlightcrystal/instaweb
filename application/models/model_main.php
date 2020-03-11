@@ -1,10 +1,10 @@
 <?php
 
-require_once "confirmEmailandUploadImg.php";
+require_once "usefulTrait.php";
 
 class Model_Main extends Model
 {
-    use confirmEmailandUploadImg;
+    use usefulTrait;
 
     public static $querySelectPublishPost = "SELECT * FROM images LEFT JOIN users on(user_id) WHERE published = true AND images.user_id = users.id ORDER BY date DESC";
 
@@ -14,11 +14,8 @@ class Model_Main extends Model
 
     public static $querySelectLikes = "SELECT * FROM likes WHERE image_id = :photo_id AND user_id = :user_id";
 
-    public static $queryCountLikes = "SELECT COUNT(*) from likes WHERE likes.image_id = :image_id";
-
     public static $queryInsertComments = "INSERT INTO comments(author, `date`, photo_id, text_comment) VALUES (:author, FROM_UNIXTIME(:date), :photo_id, :comment)";
 
-    public static $querySelectComments = "SELECT * FROM comments WHERE comments.photo_id = :image_id";
 
     public function getPublishedImages()
     {
@@ -26,13 +23,8 @@ class Model_Main extends Model
 
         foreach ($data as &$image) {
             $dataImgId = [':image_id' => $image['photo_id']];
-            $likes = $this->pdo->select(self::$queryCountLikes, $dataImgId);
-            $comments = $this->pdo->select(self::$querySelectComments, $dataImgId);
-//            var_dump($comments);
-            $image['likes'] = $likes[0]["COUNT(*)"];
-            $image['comment'] = $comments;
-//            $image['comment'] = $comments[0]["text_comment"];
-//            $image['comment_author'] = $comments[0]["author"];
+            $image['likes'] = $this->countLikes($dataImgId);
+            $image['comment'] = $this->arrayComments($dataImgId);
         }
         return $data;
     }
@@ -68,10 +60,10 @@ class Model_Main extends Model
             ':date' => time(),
             ':photo_id' => $photo_id,
             ':comment' => $comment
-            ];
+        ];
 
-        if(isset($data)) {
-            if(!$this->pdo->upsert(self::$queryInsertComments, $data))
+        if (isset($data)) {
+            if (!$this->pdo->upsert(self::$queryInsertComments, $data))
                 return false;
         }
     }

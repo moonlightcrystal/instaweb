@@ -1,10 +1,10 @@
 <?php
 
-require_once "confirmEmailandUploadImg.php";
+require_once "usefulTrait.php";
 
 class Model_Addpost extends Model
 {
-    use confirmEmailandUploadImg;
+    use usefulTrait;
 
     public static $queryInsertPost =
         'INSERT INTO images(`name`,  `date`, `user_id`, `title`) VALUES(

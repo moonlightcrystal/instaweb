@@ -1,12 +1,12 @@
 <?php
 
 require_once dirname(__FILE__) . "/../core/model.php";
-require_once "confirmEmailandUploadImg.php";
+require_once "usefulTrait.php";
 
 
 class Model_Signup extends Model
 {
-    use confirmEmailandUploadImg;
+    use usefulTrait;
 
     public static $queryInsertUser =
         'INSERT INTO users(login, email, password) VALUES(:login, :email, :passwd)';
