@@ -17,7 +17,7 @@ class Model_Profile extends Model
 
     public static $queryUpdateAvatar = "UPDATE users SET avatar = :newValue WHERE id = :user_id";
 
-    public static $querySelectPublishedPosts =  "SELECT *  FROM images
+    public static $querySelectPublishedPosts = "SELECT *  FROM images
             LEFT JOIN users ON images.user_id = users.id
             WHERE images.published = true AND images.user_id = :user_id
             ORDER BY date DESC";
@@ -32,8 +32,6 @@ class Model_Profile extends Model
 
     function changeUserInfo($whatYouChange, $newValue)
     {
-        print($whatYouChange);
-        print($newValue);
         $data = array(
             ':newValue' => $newValue,
             ':user_id' => $this->userId
@@ -56,7 +54,7 @@ class Model_Profile extends Model
     function showOwnPublishPost($user_id)
     {
         $data = [':user_id' => $user_id];
-        $allData =  $this->pdo->select(self::$querySelectPublishedPosts, $data);
+        $allData = $this->pdo->select(self::$querySelectPublishedPosts, $data);
 
         foreach ($allData as &$image) {
             $dataImgId = [':image_id' => $image['photo_id']];

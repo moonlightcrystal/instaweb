@@ -14,8 +14,8 @@
 </main>
 
     <footer>
-    <a href="https://www.instagram.com/kreshotka_tris/">MY INSTAGRAM</a>
-    <p>&copy; 2020 Created by Rudakova Kristina</p>
+    <a href="https://www.instagram.com/treshotka_kris/">MY INSTAGRAM</a>
+    <p>&copy; 2020 Snapicture сreated by Rudakova Kristina</p>
     </footer>
 </body>
 </html>

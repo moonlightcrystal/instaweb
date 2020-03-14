@@ -114,7 +114,7 @@
         <a href="/signup"><h2 class="inactive underlineHover">Sign Up</h2></a>
         ​
         <div class="fadeIn first">
-            <img style="width: 377px; border-radius: 5px 5px 5px 5px;" src="images/profile.png" id="icon"
+            <img style="width: 377px; border-radius: 5px 5px 5px 5px;" src="images/login.png" id="icon"
                  alt="User Icon"/>
         </div>
         ​

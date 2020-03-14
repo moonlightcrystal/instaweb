@@ -10,16 +10,16 @@
     if ($data) {
         foreach ($data as $post):
             ?>
-            <li>
+            <li id="BASICPOST">
                 <div id="picture">
                     <p id="date" style="color: #0bbaa0"><?= $post['date']; ?></p>
                     <div id="loginPicture">
                         <?php if (!empty($post['avatar'])) { ?>
-                        <img src="uploads/<?= $post['avatar'];
+                        <img id="avatarBasicPost" src="uploads/<?= $post['avatar'];
                         } ?>">
                         <a href=""><?= $post['login']; ?></a>
                     </div>
-                    <img src="uploads/<?= $post['name']; ?>">
+                    <img id="photoPost" src="uploads/<?= $post['name']; ?>">
                     <form action="/main/addLike" method="post">
                         <div id="likes">
                             <?php if (!empty($_SESSION['user_id'])) { ?>
@@ -40,14 +40,13 @@
                     </form>
 
                     <div id="linecomments">
-
-                        <div id="allComments">
-                            <?php
-                            foreach ($post['comment'] as $comment):
+                        <?php
+                        foreach ($post['comment'] as $comment):
                             ?>
-                            <p><?= $comment["author"]; ?> : <?= $comment["text_comment"]; ?> <?= $comment["date"];
-                                endforeach; ?></p>
-                        </div>
+                            <p>
+                                <span id="authorcomment"><?= $comment["author"]; ?>:</span><?= $comment["text_comment"]; ?>
+                                <br><span id="data"><?= $comment["date"]; ?></span></p>
+                        <?php endforeach; ?>
                     </div>
                     <?php } else echo ''; ?>
                 </div>

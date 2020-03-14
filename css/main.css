@@ -1,9 +1,115 @@
-
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
+
+#linecomments {
+    word-wrap: break-word;
+}
+
+#linecomments p {
+    color: hotpink;
+    border: #21F520 solid 0.01vw;
+
+}
+
+#data {
+    margin-left: 10vw;
+    font-size: smaller;
+}
+
+#linecomments #authorcomment {
+    margin-right: 0.2vw;
+    margin-left: 0.1vw;
+    color: greenyellow;
+}
+
+#loginPicture {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    height: 3vw;
+}
+
+
+#loginPicture #avatarBasicPost {
+    border-radius: 50%;
+    width: 3vw;
+    height: 3vw;
+    padding: 0.1vw;
+}
+
+#loginPicture a {
+    text-decoration: none;
+    color: greenyellow;
+    font-size: 1.5vw;
+    margin-left: 1vw;
+}
+
+#picture {
+    display: flex;
+    flex-direction: column;
+    background: black;
+}
+
+#picture #date {
+    color: #0bbaa0;
+    text-align: end;
+    font-size: 0.6vw;
+}
+
+#picture #photoPost {
+    width: 15vw;
+    height: 15vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#comment {
+    display: flex;
+    flex-direction: row;
+    height: 1.5vw;
+}
+
+#BASICPOST {
+    width: 20%;
+    margin-left: 0.01vw;
+}
+
+input[name=comments] {
+    width: 12vw;
+    height: 1.5vw;
+    background: #C80D80;
+    border: 0vw;
+}
+
+button[id=buttonForDraftPost] {
+    background: crimson;
+    width: 4vw;
+    height: 0.8vw;
+    border: solid 0.01vw;
+}
+
+button[class=buttonCamera] {
+    background: yellow;
+    border: 0;
+    width: 5vw;
+    height: 1.5vw;
+}
+
+#uploadPhoto {
+    background: yellow;
+    margin-left: 0.1vw
+}
+
+
+/*#commentData {*/
+
+/*    margin-right: 0.2vw;*/
+/*    font-size: smaller;*/
+/*}*/
 
 #butttonFeed {
     display: flex;
@@ -13,8 +119,6 @@
 #draftFeed {
     display: flex;
     flex-direction: column;
-    width: 8vw;
-    height: 8vw;
     margin-bottom: 1vw;
     justify-content: center;
     border: black solid 1vw;
@@ -53,10 +157,16 @@ body {
     background: #90EE90;
 }
 
-button {
-    background-color: #0bbaa0;
-    width: 3vw;
+/*button {*/
+/*    background-color: #0bbaa0;*/
+/*    width: 3vw;*/
 
+/*}*/
+
+button[id='addComment'] {
+    background-color: #0bbaa0;
+    width: 5vw;
+    height: 1.5vw;
 }
 
 #formatprofile {
@@ -65,27 +175,47 @@ button {
     justify-content: space-evenly;
 }
 
+
 .infouser {
     display: flex;
     flex-direction: column;
-    margin-left: 5%;
-    justify-content: space-evenly;
-
+    margin-left: 10.5vw;
+    justify-content: inherit;
+    background: #0d0d0d;
+    color: #21F520;
+    border: solid red 0.05vw;
+    font-size: smaller;
+    position: unset;
 }
+
+input[class="buttonEdit"], button[class="buttonEdit"] {
+    background: black;
+    border: 0;
+    color: #21F520;
+    width: 5vw;
+    height: 3vw;
+}
+
 
 .infouser form {
     display: flex;
     flex-direction: row;
     margin-top: 3%;
-    justify-content: flex-start;
+    justify-content: initial;
 
+}
+
+.infouser form p {
+    width: 3vw;
+    height: 3vw;
+    /*word-wrap: break-word;*/
+    margin-right: 3vw;
 }
 
 .infouser form img {
     border-radius: 50%;
     width: 3vw;
     height: 3vw;
-    margin-right: 3%;
 }
 
 
@@ -139,26 +269,31 @@ footer {
 .slide {
     width: 100vw;
     height: 91.5vh;
-  }
-  .wrapper {
+}
+
+.wrapper {
     display: flex;
     flex-direction: row;
     width: 400vw;
     transform: rotate(90deg) translateY(-100vh);
     transform-origin: top left;
-  }
-  .one {
+}
+
+.one {
     background: #efdefe;
-  }
-  .two {
+}
+
+.two {
     background: #a3f3d3;
-  }
-  .three {
+}
+
+.three {
     background: #0bbaa0;
-  }
-  .four {
+}
+
+.four {
     background: #00dfdf;
-  }
+}
 
 .posts {
     display: flex;
@@ -174,7 +309,8 @@ footer {
     display: flex;
     flex-direction: row;
 }
-  .outer-wrapper {
+
+.outer-wrapper {
     width: 100vh;
     height: 100vw;
     transform: rotate(-90deg) translateX(-100vh);
@@ -184,25 +320,7 @@ footer {
     position: absolute;
     scrollbar-width: none;
     -ms-overflow-style: none;
-  }
-
- 
-
-/* .main {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    max-width: 2000px;
-    clear: both;
-    height: auto;
-    margin: 0 auto;
-    text-align: center;
-    background: black;
-    -webkit-flex-flow: row wrap;
-    justify-content: space-around;
-    list-style: none;
-    display: -moz-box;
-} */
+}
 
 li {
     margin-top: 1vw;
@@ -211,16 +329,31 @@ li {
 #filters {
     display: flex;
     flex-direction: column;
+    /* background: round; */
+    background: yellow;
+    margin-right: 14.4vw;
+}
+
+input[class=uploadPhotoBut], button[class=uploadPhotoBut]{
+    color: yellow;
+    background: #0d0d0d;
+}
+
+button[id=GoButton] {
+    width: 9vw;
+    height: 5vw;
+    font-size: xx-large;
+    border: solid 0.5vw yellow;
 }
 
 #lineAddTakePhoto {
     display: flex;
     flex-direction: row;
-    background: darksalmon;
+    background: #F64A8A;
     justify-content: space-evenly;
 }
 
-#block{
+#block {
     display: flex;
     flex-direction: column;
     width: 20vw;
@@ -228,16 +361,6 @@ li {
     margin-right: 20vw;
 }
 
-#picture {
-    display: flex;
-    flex-direction: column;
-    background: black;
-}
-
-#picture img {
-    width: 15vw;
-    height: 15vw;
-}
 
 #likes input[type=image] {
     width: 1vw;
@@ -262,43 +385,7 @@ li {
     flex-direction: row;
 }
 
-#loginPicture {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    height: 76.8px;
-}
 
-#loginPicture img {
-    border-radius: 50%;
-    width: 3vw;
-    height: 3vw;
-    margin-right: 30%;
-    padding: 0.1vw;
-}
-
-#loginPicture a {
-    text-decoration: none;
-    color: greenyellow;
-    font-size: 1.5vw;
-}
-
-
-#comment {
-    display: flex;
-    flex-direction: row;
-    height: 1.7vw;
-}
-
-input[name=comments] {
-    width: 12vw;
-    height: 1.5vw;
-    background: #C80D80;
-    border: black solid 0.1vw;
-    border-width: 0.1vw 0.1vw 0px 0vw;
-
-}
 
 input[name=plus] {
     width: 3vw;
@@ -320,7 +407,7 @@ input[name=plus] {
 }
 
 #dope {
-    background: #009BA7;
+    background: #0bbaa0;
     width: 30%;
     text-decoration: none;
 }
@@ -390,13 +477,3 @@ div img {
 }
 
 
-#allComments {
-    background: lightgreen;
-    display: flex;
-    flex-direction: column;
-}
-
-#linecomments {
-    display: flex;
-    flex-direction: column;
-}

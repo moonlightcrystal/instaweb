@@ -34,7 +34,7 @@ $dbh->upsert(
     `photo_id` INT NOT NULL,
     `text_comment` TEXT, 
     FOREIGN KEY (`author`) REFERENCES `users` (`login`)
-        ON DELETE CASCADE,
+        ON UPDATE CASCADE ,
     FOREIGN KEY (`photo_id`) REFERENCES `images` (`photo_id`)
         ON DELETE CASCADE,
     PRIMARY KEY (`comment_id`))

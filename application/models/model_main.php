@@ -16,6 +16,8 @@ class Model_Main extends Model
 
     public static $queryInsertComments = "INSERT INTO comments(author, `date`, photo_id, text_comment) VALUES (:author, FROM_UNIXTIME(:date), :photo_id, :comment)";
 
+    public static $querySelectEmail = "select email from users LEFT JOIN images ON users.id = images.user_id WHERE images.photo_id = :photo_id";
+
 
     public function getPublishedImages()
     {
@@ -52,6 +54,12 @@ class Model_Main extends Model
         );
 
         return $this->pdo->select(self::$querySelectLikes, $data);
+    }
+
+    public function getEmail($photo_id)
+    {
+        $data = [':photo_id' => $photo_id];
+        return $this->pdo->select(self::$querySelectEmail, $data);
     }
 
     public function insertComments($login, $photo_id, $comment)

@@ -10,20 +10,21 @@
 
 <div id="lineAddTakePhoto">
     <form id="filters">
+        <p>FILTERS</p>
         <label>
-            <input name="filt" type="radio" id="filter1" value="GTA">GTA
+            <input name="filt" type="radio" id="filter1" value="GTA"> GTA
             <img id="imgGTA" src="images/gta.png">
         </label>
         <label>
-            <input name="filt" type="radio" id="filter2" value="vaporwave">vaporwave
+            <input name="filt" type="radio" id="filter2" value="vaporwave"> vaporwave
             <img id="imgVaporwave" src="images/dolphin.png">
         </label>
         <label>
-            <input name="filt" type="radio" id="filter3" value="bol">bol
+            <input name="filt" type="radio" id="filter3" value="bol"> bol
             <img id="imgBol" src="images/bol.png">
         </label>
         <label>
-            <input name="filt" type="radio" id="empty">empty
+            <input name="filt" type="radio" id="empty"> empty
         </label>
     </form>
     <div id="livephoto">
@@ -32,16 +33,18 @@
             <canvas id="canvas" width="320px" height="240px"></canvas>
         </div>
         <div>
-            <button onclick="startWebcam();">Start WebCam</button>
-            <button onclick="stopWebcam();">Stop WebCam</button>
-            <button onclick="snapshot();">Take Photo</button>
-            <button onclick="addToDraft();">Add to draft</button>
-            <button id="makeEffect">Make filter</button>
+            <button class="buttonCamera" onclick="startWebcam();">Start WebCam</button>
+            <button class="buttonCamera" onclick="stopWebcam();">Stop WebCam</button>
+            <button class="buttonCamera" onclick="snapshot();">Take Photo</button>
+            <button class="buttonCamera" onclick="addToDraft();">Add to draft</button>
+            <button class="buttonCamera" id="makeEffect">Make filter</button>
         </div>
     </div>
-    <form action="/addpost/addPostToDraft" method="post" enctype="multipart/form-data">
-        <input type="file" name="image"><br>
-        <button type="submit">GO</button>
+
+    <form id="uploadPhoto" action="/addpost/addPostToDraft" method="post" enctype="multipart/form-data">
+        <p>UPLOAD A PHOTO</p>
+        <input class="uploadPhotoBut" type="file" name="image"><br>
+        <button class="uploadPhotoBut" id="GoButton" type="submit">UPLOAD</button>
     </form>
 
 </div>
@@ -57,12 +60,12 @@
                 <div id="butttonFeed">
                     <form action="/addpost/publishPost" method="post">
                         <input hidden name=image_id value='<?= $post['photo_id']; ?>'>
-                        <button type="submit">PUBLISH</button>
+                        <button id="buttonForDraftPost" type="submit">PUBLISH</button>
                     </form>
                     <form action="/addpost/deletePost" method="post">
                         <input hidden name=image_id value='<?= $post['photo_id'] ?>'>
                         <input hidden name=image_name value='<?= $post['name'] ?>'>
-                        <button type="submit">DELETE</button>
+                        <button id="buttonForDraftPost" type="submit">DELETE</button>
                     </form>
                 </div>
             </div>

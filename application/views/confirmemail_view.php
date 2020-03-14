@@ -131,7 +131,7 @@
     <a href="/signin"><h2 class="inactive underlineHover"> Sign In </h2></a>
     <h2 class="active"> Sign Up </h2>
     <div class="fadeIn first">
-        <img style="width: 377px; border-radius: 5px 5px 5px 5px;" src="images/profile.png" id="icon" alt="User Icon"/>
+        <img style="width: 377px; border-radius: 5px 5px 5px 5px;" src="../../../images/enterCode.png" id="icon" alt="User Icon"/>
     </div>
     ​
     <form method="post" action="checkCode">
