@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Black+Ops+One|Faster+One|Kosugi|Montserrat+Subrayada|Poiret+One|Press+Start+2P|VT323|Zilla+Slab+Highlight&display=swap" rel="stylesheet">
 </head>
 
 
@@ -35,7 +36,7 @@
                             <?php if (!empty($_SESSION['user_id']) && isset($_SESSION['login'])) { ?>
                             <input name="comments" type="text" placeholder="add your comment">
                             <input hidden name=image_id value='<?= $post['photo_id'] ?>'>
-                            <button id="addComment" name="plus" type="submit">Add comment</button>
+                            <button id="addComment" name="plus" type="submit">ADD COMMENT</button>
                         </div>
                     </form>
 

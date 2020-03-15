@@ -5,6 +5,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Black+Ops+One|Faster+One|Montserrat+Subrayada|Zilla+Slab+Highlight&display=swap" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -20,13 +21,12 @@
         ';
     } else {
         echo '
-        <div id="dope">
-        <img src="../images/pink.png">
-        </div>
-        <div id="profile">
-        <img src="../images/blue.PNG">
-    </div>
-    <a id="logout" href="/signin"> LOGIN</a>';
+    <a id="dope">GO</a>
+     <a id="profile">TO</a>
+
+    <a id="label">snapicture</a>
+        <a id="logout" href="/signin"> LOGIN</a>';
+
     }
 ?>
 </header>

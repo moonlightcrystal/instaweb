@@ -4,27 +4,41 @@
 <!--    <link rel="stylesheet" type="text/css" href="css/main.css">-->
     <meta name="viewport"
           content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Black+Ops+One|Faster+One|Montserrat+Subrayada|Zilla+Slab+Highlight&display=swap" rel="stylesheet">
 </head>
 
 <body onload="init();">
 
 <div id="lineAddTakePhoto">
     <form id="filters">
-        <p>FILTERS</p>
+        <pre> F   I   L   T   E   R   S </pre>
+<!--        <label>-->
+<!--            <input name="filt" type="radio" id="filter1" value="GTA">-->
+<!--            <img id="imgGTA" src="images/gtavice.png">-->
+<!--        </label>-->
         <label>
-            <input name="filt" type="radio" id="filter1" value="GTA"> GTA
-            <img id="imgGTA" src="images/gta.png">
+            <input name="filt" type="radio" id="filter2" value="wall">
+            <img id="wall" src="images/wall.png">
         </label>
         <label>
-            <input name="filt" type="radio" id="filter2" value="vaporwave"> vaporwave
-            <img id="imgVaporwave" src="images/dolphin.png">
-        </label>
-        <label>
-            <input name="filt" type="radio" id="filter3" value="bol"> bol
-            <img id="imgBol" src="images/bol.png">
+            <input name="filt" type="radio" id="filter3" value="paint">
+            <img id="paint" src="images/paint.png">
         </label>
         <label>
             <input name="filt" type="radio" id="empty"> empty
+        </label>
+        <pre> F   I   L   T   E   R   S </pre>
+        <label>
+            <input name="filt" type="radio" id="filter1" value="woman">
+            <img id="woman" src="images/woman.png">
+        </label>
+        <label>
+            <input name="filt" type="radio" id="filter3" value="arms">
+            <img id="arms" src="images/arms.png">
+        </label>
+        <label>
+            <input name="filt" type="radio" value="angel">
+            <img id="angel" src="images/angel.png">
         </label>
     </form>
     <div id="livephoto">
@@ -42,7 +56,7 @@
     </div>
 
     <form id="uploadPhoto" action="/addpost/addPostToDraft" method="post" enctype="multipart/form-data">
-        <p>UPLOAD A PHOTO</p>
+        <pre>U P L O A D   A   P H O T O</pre>
         <input class="uploadPhotoBut" type="file" name="image"><br>
         <button class="uploadPhotoBut" id="GoButton" type="submit">UPLOAD</button>
     </form>

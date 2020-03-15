@@ -32,6 +32,7 @@ class Controller_Signup extends Controller
                 $_SESSION['login'] = htmlspecialchars($_POST['login']);
                 $_SESSION['email'] = htmlspecialchars($_POST['email']);
                 $_SESSION['passwd'] = password_hash($_POST['passwd'], PASSWORD_DEFAULT);
+                $_SESSION['code'] = htmlspecialchars($_POST['code']);
                 $_SESSION['code'] = $this->model->confirmEmail($_SESSION['email']);
                 var_dump($_SESSION);
 //                $this->view->redirect('/confirmemail');
@@ -43,7 +44,7 @@ class Controller_Signup extends Controller
     function action_checkCode()
     {
 
-        if (!empty($_POST['code']) && !empty($_SESSION['email'])) {
+        if (!empty(htmlspecialchars($_POST['code'])) && !empty($_SESSION['email'])) {
             if (($_SESSION['code'] == $_POST['code'])) {
                 $fullUser = $this->model->registerUser();
                 $_SESSION['user_id'] = $fullUser['id'];

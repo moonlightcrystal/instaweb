@@ -22,6 +22,7 @@ class Model_Profile extends Model
             WHERE images.published = true AND images.user_id = :user_id
             ORDER BY date DESC";
 
+    public static $queryDeletePost = "DELETE FROM images WHERE images.photo_id = :photo_id";
 //     public $c = "SELECT * FROM images LEFT JOIN users on(user_id) WHERE published = true AND images.user_id = users.id ORDER BY date DESC";
 
     public function __construct($user_id)
@@ -49,6 +50,14 @@ class Model_Profile extends Model
             return false;
         return true;
 
+    }
+
+    public function deletePost($photoId)
+    {
+        $data = [':photo_id' => $photoId];
+        if(!$this->pdo->upsert(self::$queryDeletePost, $data))
+            return false;
+        return true;
     }
 
     function showOwnPublishPost($user_id)

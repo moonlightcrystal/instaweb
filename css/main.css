@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -7,36 +8,43 @@
 
 #linecomments {
     word-wrap: break-word;
-    height: 5vw;
+    height: 2.7vw;
     overflow: auto;
-    /*border: 1px solid #C1C1C1; !* размер и цвет границы блока *!*/
-    /*overflow-x: scroll; !* прокрутка по горизонтали *!*/
-    /*overflow-y: scroll; !* прокрутка по вертикали *!*/
+}
 
+#linecomments::-webkit-scrollbar {
+    display: block;
+    background: #F7F21A;
 }
 
 #linecomments p {
     color: hotpink;
     border: #21F520 solid 0.01vw;
+    font-family: 'Kosugi', sans-serif;
 
 }
 
 #data {
     margin-left: 10vw;
-    font-size: smaller;
+    font-size: 0.5vw;
+    font-family: 'VT323', monospace;
+    color: #0bbaa0;
 }
 
 #linecomments #authorcomment {
     margin-right: 0.2vw;
     margin-left: 0.1vw;
     color: greenyellow;
+
+    font-family: 'Montserrat Subrayada', sans-serif;
+
 }
 
 #loginPicture {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     height: 3vw;
 }
 
@@ -53,6 +61,8 @@
     color: greenyellow;
     font-size: 1.5vw;
     margin-left: 1vw;
+    font-family: 'Montserrat Subrayada', sans-serif;
+
 }
 
 #picture {
@@ -65,6 +75,7 @@
     color: #0bbaa0;
     text-align: end;
     font-size: 0.6vw;
+    font-family: 'VT323', monospace;
 }
 
 #picture #photoPost {
@@ -72,6 +83,7 @@
     height: 15vw;
     margin-left: auto;
     margin-right: auto;
+    border: solid 0.05vw #21F520;
 }
 
 #comment {
@@ -79,7 +91,6 @@
     flex-direction: row;
     height: 1.5vw;
 }
-
 
 
 input[name=comments] {
@@ -94,6 +105,9 @@ button[id=buttonForDraftPost] {
     width: 4vw;
     height: 0.8vw;
     border: solid 0.01vw;
+    font-size: 0.6vw;
+    font-family: 'Black Ops One', cursive;
+
 }
 
 button[class=buttonCamera] {
@@ -101,6 +115,8 @@ button[class=buttonCamera] {
     border: 0;
     width: 5vw;
     height: 1.5vw;
+    font-family: 'Black Ops One', cursive;
+    font-size: 0.5vw;
 }
 
 #uploadPhoto {
@@ -135,6 +151,7 @@ button[class=buttonCamera] {
 #livephoto {
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
 }
 
 #draftFeed a {
@@ -155,7 +172,6 @@ button[class=buttonCamera] {
 }
 
 
-
 /*button {*/
 /*    background-color: #0bbaa0;*/
 /*    width: 3vw;*/
@@ -166,7 +182,12 @@ button[id='addComment'] {
     background-color: #0bbaa0;
     width: 5vw;
     height: 1.5vw;
+    font-family: 'Black Ops One', cursive;
+
+    font-size: 0.5vw;
+
 }
+
 
 #formatprofile {
     display: flex;
@@ -174,25 +195,28 @@ button[id='addComment'] {
     justify-content: space-evenly;
 }
 
+.infouser pre {
+    text-align: center;
+    font-size: 1.5vw;
+}
 
 .infouser {
     display: flex;
     flex-direction: column;
-    margin-left: 10.5vw;
     justify-content: inherit;
     background: #0d0d0d;
     color: #21F520;
-    border: solid red 0.05vw;
     font-size: smaller;
     position: unset;
+    width: 17vw;
+    height: 25vw;
 }
 
 input[class="buttonEdit"], button[class="buttonEdit"] {
     background: black;
     border: 0;
     color: #21F520;
-    width: 5vw;
-    height: 3vw;
+    font-family: 'VT323', monospace;
 }
 
 
@@ -208,7 +232,9 @@ input[class="buttonEdit"], button[class="buttonEdit"] {
     width: 3vw;
     height: 3vw;
     /*word-wrap: break-word;*/
-    margin-right: 3vw;
+    margin-right: 3.7vw;
+    margin-left: 0.5vw;
+    font-family: 'Bebas Neue', cursive;
 }
 
 .infouser form img {
@@ -223,11 +249,14 @@ header {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    max-width: 2000px;
-    height: 100px;
+    /* max-width: 2000px; */
     clear: both;
     margin: 0 auto;
     text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    font-size: xx-large;
+    align-items: start;
+    font-size: 1.3vw;
 }
 
 body {
@@ -238,23 +267,27 @@ body {
 }
 
 
-
 .flex-container {
     padding: 0;
     margin: 0;
     list-style: none;
     display: flex;
     /*-webkit-flex-flow: row wrap;*/
-    justify-content: space-around;
+    /*justify-content: space-around;*/
     /*max-width: 2000px;*/
     width: 100%;
     overflow-x: scroll;
 
 }
 
+.flex-container::-webkit-scrollbar {
+    display: block;
+    background: #D5265B;
+}
+
 #BASICPOST {
-    width: 20%;
     margin-left: 0.7vw;
+    width: 16vw;
 }
 
 footer {
@@ -337,19 +370,34 @@ footer {
     -ms-overflow-style: none;
 }
 
-li {
-    margin-top: 1vw;
-}
-
 #filters {
     display: flex;
     flex-direction: column;
     /* background: round; */
     background: yellow;
-    margin-right: 14.4vw;
+    margin-right: 7.1vw;
+    font-family: 'Black Ops One', cursive;
+    font-size: 0.6vw;
+
 }
 
-input[class=uploadPhotoBut], button[class=uploadPhotoBut]{
+#filters pre, #uploadPhoto pre {
+
+    font-family: 'Zilla Slab Highlight', cursive;
+    text-align: center;
+    font-stretch: expanded;
+    font-size: 0.6vw;
+}
+
+header a {
+    color: #230D21;
+}
+
+label {
+    align-items: center;
+}
+
+input[class=uploadPhotoBut], button[class=uploadPhotoBut] {
     color: yellow;
     background: #0d0d0d;
 }
@@ -357,7 +405,7 @@ input[class=uploadPhotoBut], button[class=uploadPhotoBut]{
 button[id=GoButton] {
     width: 9vw;
     height: 5vw;
-    font-size: xx-large;
+    font-size: 1.5vw;
     border: solid 0.5vw yellow;
 }
 
@@ -365,7 +413,7 @@ button[id=GoButton] {
     display: flex;
     flex-direction: row;
     background: #F64A8A;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 #block {
@@ -399,7 +447,6 @@ button[id=GoButton] {
     display: flex;
     flex-direction: row;
 }
-
 
 
 input[name=plus] {

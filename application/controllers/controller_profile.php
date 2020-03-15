@@ -90,4 +90,17 @@ class Controller_Profile extends Controller
             $this->view->redirect('/profile');
         }
     }
+
+    function action_deletePublishPost()
+    {
+        if (isset($_POST) && !empty($_POST['image_id'] && !empty($_POST['image_name']))) {
+            if ($this->model->deletePost($_POST['image_id'])) {
+                $path = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . $_POST['image_name'];
+                if (file_exists($path))
+                    unlink($path);
+            }
+        }
+        $this->view->redirect('/profile');
+    }
+
 }

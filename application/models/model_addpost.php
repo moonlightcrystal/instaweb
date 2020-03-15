@@ -14,7 +14,7 @@ class Model_Addpost extends Model
 
     public static $querySelectUserImages = "SELECT * FROM images WHERE user_id = :user_id AND published = false";
 
-    public static $queryDropUsers = "DELETE FROM images WHERE images.photo_id = :photo_id";
+    public static $queryDropDraft = "DELETE FROM images WHERE images.photo_id = :photo_id";
 
 
     public function addPost($imageName, $user_id)
@@ -50,7 +50,7 @@ class Model_Addpost extends Model
     public function deletePost($photoId)
     {
         $data = [':photo_id' => $photoId];
-        if(!$this->pdo->upsert(self::$queryDropUsers, $data))
+        if(!$this->pdo->upsert(self::$queryDropDraft, $data))
             return false;
         return true;
     }

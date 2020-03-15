@@ -44,10 +44,18 @@ function checkedFilter() {
         if (inputs[i].checked) {
             if (inputs[i].value == 'GTA')
                 return document.getElementById("imgGTA").getAttribute('src');
-            else if (inputs[i].value == 'vaporwave')
-                return document.getElementById("imgVaporwave").getAttribute('src');
-            else if (inputs[i].value == 'bol')
-                return document.getElementById("imgBol").getAttribute('src');
+            else if (inputs[i].value == 'wall')
+                return document.getElementById("wall").getAttribute('src');
+            else if (inputs[i].value == 'paint')
+                return document.getElementById("paint").getAttribute('src');
+            else if (inputs[i].value == 'woman')
+                return document.getElementById("woman").getAttribute('src');
+            else if (inputs[i].value == 'rus')
+                return document.getElementById("rus").getAttribute('src');
+            else if (inputs[i].value == 'arms')
+                return document.getElementById("arms").getAttribute('src');
+            else if (inputs[i].value == 'angel')
+                return document.getElementById("angel").getAttribute('src');
         }
     }
 }
@@ -64,7 +72,11 @@ function createPhotoFilter() {
         let image_filter = new Image();
         image_filter.src = checkedFilter();
         image_filter.onload = function () {
-            ctx.drawImage(image_filter, 0, 0, 204.8, 204.8);
+            // if (image_filter.src = 'images/gtavice.png') {
+            //     ctx.drawImage(image_filter, 170, -20, 150, 120);
+            // } else {
+                ctx.drawImage(image_filter, 0, 0, 320, 243);
+            // }
             let Newimg = canvas.toDataURL("image/png");
             canvas.setAttribute('img', Newimg);
         }
