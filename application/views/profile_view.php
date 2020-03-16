@@ -1,4 +1,5 @@
 <?php
+
 ?>
 
 <html>
@@ -37,8 +38,14 @@
 
         <form action="/profile/changePassword" method="post">
             <input class="buttonEdit"type="password" name="oldpasswd" placeholder="OLD PASSWORD" required>
-            <input class="buttonEdit" type="password" name="newpasswd" placeholder="NEW PASSWORD" required>
+            <input class="buttonEdit" type="password" name="newpasswd" pattern = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title = "The password cannot be shorter than eight characters and must contain at least one digit, one small and one large Latin letter." placeholder="NEW PASSWORD" required>
             <button class="buttonEdit" type="submit">RESET</button>
+        </form>
+        <form action="/profile/changeNotifEmail" method="post">
+            <?php if(!$_SESSION['notif'])
+           echo ' <button class="buttonEdit" type="submit">ON NOTIFICATION COMMENT</button>';
+           else
+            echo '<button class="buttonEdit" type="submit">OFF NOTIFICATION COMMENT</button>'; ?>
         </form>
     </div>
     <ul class="flex-container">

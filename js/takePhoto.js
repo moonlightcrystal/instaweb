@@ -87,7 +87,7 @@ let makeEffect = document.getElementById("makeEffect");
 
 makeEffect.addEventListener("click", function () {
     createPhotoFilter();
-}, {once: true});
+});
 
 function isCanvasBlank(canvas) {
     return !canvas.getContext('2d')

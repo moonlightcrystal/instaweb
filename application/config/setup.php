@@ -1,8 +1,13 @@
 <?php
 require_once dirname(__FILE__) . "/../core/pdo.php";
 date_default_timezone_set('Europe/Moscow');
-
-$dbh = new createPdo();
+require_once $_SERVER['DOCUMENT_ROOT'] . 'application/config/database.php';
+$dbh = new createPdo([
+    'DB_DSN' => $DB_DSN,
+    'DB_USER' => $DB_USER,
+    'DB_PASSWORD' => $DB_PASSWORD,
+    'opt' => $opt
+]);
 
 $dbh->upsert("CREATE DATABASE IF NOT EXISTS camagru");
 echo "Database created successfully :3 <br>";
@@ -13,7 +18,9 @@ $dbh->upsert("CREATE TABLE IF NOT EXISTS users
     login VARCHAR(32) NOT NULL UNIQUE ,
     email VARCHAR(128) NOT NULL UNIQUE ,
     avatar VARCHAR(128) UNIQUE ,
-    password VARCHAR(255) NOT NULL);");
+    password VARCHAR(255) NOT NULL,
+    notif BOOL DEFAULT TRUE
+    );");
 
 $dbh->upsert(
     "CREATE TABLE IF NOT EXISTS `images` ( 

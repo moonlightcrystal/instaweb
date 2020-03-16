@@ -23,7 +23,8 @@ class Model_Profile extends Model
             ORDER BY date DESC";
 
     public static $queryDeletePost = "DELETE FROM images WHERE images.photo_id = :photo_id";
-//     public $c = "SELECT * FROM images LEFT JOIN users on(user_id) WHERE published = true AND images.user_id = users.id ORDER BY date DESC";
+
+    public static $queryUpdateNotif = "UPDATE users SET notif = !notif WHERE id = :user_id";
 
     public function __construct($user_id)
     {
@@ -55,7 +56,15 @@ class Model_Profile extends Model
     public function deletePost($photoId)
     {
         $data = [':photo_id' => $photoId];
-        if(!$this->pdo->upsert(self::$queryDeletePost, $data))
+        if (!$this->pdo->upsert(self::$queryDeletePost, $data))
+            return false;
+        return true;
+    }
+
+    public function returnNotif($user_id)
+    {
+        $data = [':user_id' => $user_id];
+        if (!$this->pdo->upsert(self::$queryUpdateNotif, $data))
             return false;
         return true;
     }
@@ -64,7 +73,6 @@ class Model_Profile extends Model
     {
         $data = [':user_id' => $user_id];
         $allData = $this->pdo->select(self::$querySelectPublishedPosts, $data);
-
         foreach ($allData as &$image) {
             $dataImgId = [':image_id' => $image['photo_id']];
             $image['likes'] = $this->countLikes($dataImgId);

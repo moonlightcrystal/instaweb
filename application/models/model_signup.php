@@ -28,10 +28,4 @@ class Model_Signup extends Model
 
 }
 
-//$email = "weloveyoucris7@gmail.com";
-//
-//$proba = new Model_Signup();
-//
-//print $proba->confirmEmail($email);
-
 

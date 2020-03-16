@@ -5,7 +5,6 @@
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Black+Ops+One|Faster+One|Kosugi|Montserrat+Subrayada|Poiret+One|Press+Start+2P|VT323|Zilla+Slab+Highlight&display=swap" rel="stylesheet">
 </head>
 
-
 <ul class="flex-container">
     <?php
     if ($data) {

@@ -16,7 +16,7 @@ class Model_Main extends Model
 
     public static $queryInsertComments = "INSERT INTO comments(author, `date`, photo_id, text_comment) VALUES (:author, FROM_UNIXTIME(:date), :photo_id, :comment)";
 
-    public static $querySelectEmail = "select email from users LEFT JOIN images ON users.id = images.user_id WHERE images.photo_id = :photo_id";
+    public static $querySelectEmail = "select email,notif from users LEFT JOIN images ON users.id = images.user_id WHERE images.photo_id = :photo_id";
 
 
     public function getPublishedImages()

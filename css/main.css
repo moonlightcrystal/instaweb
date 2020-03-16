@@ -25,7 +25,7 @@
 }
 
 #data {
-    margin-left: 10vw;
+    margin-left: 7vw;
     font-size: 0.5vw;
     font-family: 'VT323', monospace;
     color: #0bbaa0;
@@ -298,15 +298,18 @@ footer {
 
 footer a {
     color: #ee0d34;
+    font-size: 0.7vw;
 }
 
 footer p {
     color: yellow;
+    font-size: 0.7vw;
 }
 
 footer {
     background: #1D51E5;
     height: 10vw;
+    margin-top: 15.85vw;
 }
 
 .post1 img {

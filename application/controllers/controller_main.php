@@ -34,8 +34,11 @@ class Controller_Main extends Controller
         if (isset($_POST) && !empty(htmlspecialchars($_POST['comments']) && !empty($_SESSION['login'] && !empty($_POST['image_id'])))) {
             $comments = htmlspecialchars($_POST['comments']);
             $this->model->insertComments($_SESSION['login'], $_POST['image_id'], $comments);
-            $email = $this->model->getEmail($_POST['image_id']);
-            mail($email[0]["email"], "New comment from snapicture", "Hello " . $_SESSION['login'] . ', '. 'new comment is on your post is "' . $_POST['comments'] . '" from ' . $_SESSION['login']);
+
+            $data = $this->model->getEmail($_POST['image_id']);
+            $email = $data[0]['email'];
+            if ($data[0]['notif'])
+                mail($email, "New comment from snapicture", "Hello " . $_SESSION['login'] . ', ' . 'new comment is on your post is "' . $_POST['comments'] . '" from ' . $_SESSION['login']);
         }
         if (isset($_POST['profile'])) {
             $this->view->redirect('/profile');

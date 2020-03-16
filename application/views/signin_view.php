@@ -103,6 +103,16 @@
         border: 2px solid greenyellow;
     }
 
+    input[type=email], button[id=forgorpass] {
+        background: #C80D80;
+        border: 0;
+        font-size: 0.5vw;
+        color: black;
+        font-family: "Poppins", sans-serif;
+        text-align: initial;
+        width: 6vw;
+    }
+
     input[type=text]:focus {
         background-color: blue;
         border-bottom: 3px solid yellowgreen;
@@ -122,6 +132,10 @@
             <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
             <input type="password" id="password" class="fadeIn third" name="passwd" placeholder="password">
             <input type="submit" class="fadeIn fourth" value="LogIn">
+        </form>
+        <form method="post" action="/signin/forgotpassword">
+            <input type="email" id="email" class="fadeIn second" name="email" placeholder=youremail required>
+            <button id="forgorpass">FORGOT PASSWORD</button>
         </form>
     </div>
 </html>

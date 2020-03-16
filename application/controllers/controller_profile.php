@@ -103,4 +103,12 @@ class Controller_Profile extends Controller
         $this->view->redirect('/profile');
     }
 
+    function action_changeNotifEmail()
+    {
+
+        $this->model->returnNotif($_SESSION['user_id']);
+        $_SESSION['notif'] = !$_SESSION['notif'];
+        $this->view->redirect('/profile');
+    }
+
 }

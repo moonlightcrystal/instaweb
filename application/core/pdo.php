@@ -2,22 +2,15 @@
 
 class createPdo
 {
-
     public static $dbh = null;
-    static $DB_DSN = 'mysql:host=127.0.0.1;dbname=camagru;charset=utf8';
-    static $DB_USER = "camagru";
-    static $DB_PASSWORD = "adventure";
-    static $opt = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES => false,];
-
-    public function __construct()
+    public function __construct($DB_ARGS=null)
     {
-        if (self::$dbh)
+        if (self::$dbh || !$DB_ARGS)
             return;
         else {
             try {
-                self::$dbh = new PDO(self::$DB_DSN, self::$DB_USER, self::$DB_PASSWORD, self::$opt);
+                self::$dbh = new PDO(
+                    $DB_ARGS['DB_DSN'], $DB_ARGS['DB_USER'], $DB_ARGS['DB_PASSWORD'], $DB_ARGS['opt']);
             } catch (PDOException $e) {
                 echo "Error with creating db: " . $e->getMessage() . ":(";
             }

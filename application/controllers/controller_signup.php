@@ -34,8 +34,6 @@ class Controller_Signup extends Controller
                 $_SESSION['passwd'] = password_hash($_POST['passwd'], PASSWORD_DEFAULT);
                 $_SESSION['code'] = htmlspecialchars($_POST['code']);
                 $_SESSION['code'] = $this->model->confirmEmail($_SESSION['email']);
-                var_dump($_SESSION);
-//                $this->view->redirect('/confirmemail');
                 $this->action_index('code');
             }
         }
